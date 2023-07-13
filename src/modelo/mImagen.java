@@ -18,7 +18,7 @@ public class mImagen extends Imagen {
             if (id == 0) {
                 sql = "SELECT id, nombre, valor FROM imagen";
             } else {
-                sql = "SSELECT id, nombre, valor  FROM imagen WHERE id=" + id;
+                sql = "SELECT id, nombre, valor  FROM imagen WHERE id=" + id;
             }
             rs = con.consulta(sql);
             if (rs != null) {

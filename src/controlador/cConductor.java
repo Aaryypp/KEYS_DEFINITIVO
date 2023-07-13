@@ -63,17 +63,22 @@ public class cConductor {
     public void iniciar(){
         listar();
         modo("Registrar");
+        vista.getJbOK().setText("Registrar");
+        vista.getLbFoto().setText("Registrar conductor");
         seleccionar(vista.getJtConductores());
         vista.getJb_ModoNuevo().addActionListener(l-> {
             vista.getJbOK().setText("Registrar");
+            vista.getLbFoto().setText("Registrar conductor");
             modo("Registrar");
                 });
         vista.getJb_ModoEditar().addActionListener(l-> {
             vista.getJbOK().setText("Actualizar");
+            vista.getLbFoto().setText("Actualizar conductor");
             modo("Actualizar");
                 });
         vista.getJb_ModoVista().addActionListener(l-> {
             vista.getJbOK().setText("Eliminar");
+            vista.getLbFoto().setText("Eliminar conductor");
             modo("Eliminar");
                 });
         vista.getJbOK().addActionListener(l-> OK());
@@ -105,7 +110,7 @@ public class cConductor {
                 vista.getTxtDireccion().setText(rs.getString(8));
                 vista.getTxtCorreo().setText(rs.getString(9));
                 vista.getCbSexo().setSelectedItem(rs.getString(10));
-                setImagen(rs.getInt(11));
+                setIcon(rs.getInt(11));
                 vista.getTxtSueldo().setText(""+rs.getDouble(12));
                 vista.getTxtLicencia().setText(rs.getString(13));
                 vista.getCbTipoLicencia().setSelectedItem(rs.getString(14));
@@ -153,7 +158,7 @@ public class cConductor {
                                 registrar();
                             }
                             if (vista.getJbOK().getText().equals("Actualizar")) {
-                                
+                                actualizar();
                             }
                             if (vista.getJbOK().getText().equals("Eliminar")) {
                                 if (modelo.eliminar()) {
@@ -229,12 +234,8 @@ public class cConductor {
         mp.setDireccion(vista.getTxtDireccion().getText());
         mp.setCorreo(vista.getTxtCorreo().getText());
         mp.setSexo(vista.getCbSexo().getSelectedItem().toString());
-        /*
-        INSERTAR IMAGEN
-        OBTENER ID IMAGEN
-        */
-        
-        mp.setId_imagen(id);
+        setImagen();
+        mp.setId_imagen(mi.ultimoID());
     }
     public void setearEmpleado(){
         me.setCedula_per(vista.getTxtCedula().getText());
@@ -305,7 +306,7 @@ public class cConductor {
             vista.getBtnExaminar().setEnabled(editable);
     }
     
-    public void setImagen(int id) {
+    public void setIcon(int id) {
         try {
             imagenes = mi.listar(id);
             byte[] valor = imagenes.get(0).getValor();
@@ -342,5 +343,10 @@ public class cConductor {
         } catch (Exception e) {
             return null;
         }
+    }
+    public void setImagen(){
+        mi.setNombre(ruta);
+        mi.setValor(getByte(ruta));
+        mi.crear();
     }
 }
