@@ -11,7 +11,7 @@ public class mPersona extends Persona {
     
     public boolean crear() {
         sql = "INSERT INTO Persona (cedula, nombre1, nombre2, apellido1, apellido2, fecha_nac, telefono, direccion, correo, sexo, id_imagen)"
-                + " VALUES ('" + getCedula() + "','" + getNombre1() + "', '" + getNombre2() + "', '" + getApellido1() + "', '" + getApellido2() + "',to_date('" + getFecha_nac() + "', 'YYYY-MM-DD'), '" + getTelefono() + "', '" + getDireccion() + "', '" + getCorreo() + "', '" + getSexo() + "','" + getId_imagen() + "')";
+                + " VALUES ('" + getCedula() + "','" + getNombre1() + "', '" + getNombre2() + "', '" + getApellido1() + "', '" + getApellido2() + "',to_date('" + getFecha_nac() + "', 'YYYY-MM-DD'), '" + getTelefono() + "', '" + getDireccion() + "', '" + getCorreo() + "', '" + getSexo() + "','" + 1 + "')";
         return con.accion(sql);
     }
   
@@ -22,7 +22,6 @@ public class mPersona extends Persona {
                 + ", apellido1='" + getApellido1() + "'"
                 + ", apellido2='" + getApellido2() + "'"
                  + ", fecha_nac= to_date('" + getFecha_nac() + "', 'YYYY-MM-DD')"
-                
                 + ", telefono='" + getTelefono() + "'"
                 + ", direccion='" + getDireccion() + "'"
                 + ", correo='" + getCorreo() + "'"
