@@ -135,13 +135,10 @@ public class vConductor extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
         txtNombre2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtLicencia = new javax.swing.JTextField();
-        jSeparator12 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
         txtApellido1 = new javax.swing.JTextField();
@@ -150,15 +147,11 @@ public class vConductor extends javax.swing.JInternalFrame {
         txtTelefono = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtPrecioHora = new javax.swing.JTextField();
-        jSeparator19 = new javax.swing.JSeparator();
-        jSeparator20 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
         jSeparator21 = new javax.swing.JSeparator();
-        jSeparator22 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
         cbTipoLicencia = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jSeparator24 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         lbFoto = new RoundedLabel("", 100, 0x221C37, 0x221C37, 1.0f)
         ;
@@ -166,20 +159,16 @@ public class vConductor extends javax.swing.JInternalFrame {
         txtNombre1 = new javax.swing.JTextField();
         txtApellido2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jSeparator23 = new javax.swing.JSeparator();
         jdcFechaNac = new com.toedter.calendar.JDateChooser();
         jLabel20 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        jSeparator25 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jSeparator26 = new javax.swing.JSeparator();
         cbSexo = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         txtSueldo = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jSeparator27 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtConductores = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -187,7 +176,6 @@ public class vConductor extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         cbColumnas = new javax.swing.JComboBox<>();
-        jSeparator13 = new javax.swing.JSeparator();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         setClosable(true);
@@ -251,36 +239,22 @@ public class vConductor extends javax.swing.JInternalFrame {
         jbOK.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbOK.setForeground(new java.awt.Color(255, 255, 255));
         jbOK.setText("OK");
-        jbOK.setBorder(null);
         jbOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jScrollPane.setPreferredSize(new java.awt.Dimension(368, 775));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setMaximumSize(new java.awt.Dimension(365, 980));
-        jPanel3.setMinimumSize(new java.awt.Dimension(365, 980));
-        jPanel3.setPreferredSize(new java.awt.Dimension(365, 980));
+        jPanel3.setMaximumSize(new java.awt.Dimension(360, 1020));
+        jPanel3.setMinimumSize(new java.awt.Dimension(360, 1020));
+        jPanel3.setPreferredSize(new java.awt.Dimension(360, 1020));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Cedula:");
 
         txtCedula.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(0, 153, 204));
-        txtCedula.setBorder(null);
-
-        jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator6.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator6.setOpaque(true);
-        jSeparator6.setPreferredSize(new java.awt.Dimension(50, 1));
-
-        jSeparator7.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator7.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator7.setOpaque(true);
-        jSeparator7.setPreferredSize(new java.awt.Dimension(50, 1));
 
         txtNombre2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNombre2.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -291,17 +265,11 @@ public class vConductor extends javax.swing.JInternalFrame {
         jLabel6.setText("Primer Apellido:");
 
         txtLicencia.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtLicencia.setBorder(null);
         txtLicencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLicenciaActionPerformed(evt);
             }
         });
-
-        jSeparator12.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator12.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator12.setOpaque(true);
-        jSeparator12.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -313,7 +281,6 @@ public class vConductor extends javax.swing.JInternalFrame {
         jSeparator17.setPreferredSize(new java.awt.Dimension(50, 1));
 
         txtApellido1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtApellido1.setBorder(null);
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
@@ -324,7 +291,6 @@ public class vConductor extends javax.swing.JInternalFrame {
         jLabel9.setText("Teléfono:");
 
         txtTelefono.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtTelefono.setBorder(null);
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
@@ -332,22 +298,11 @@ public class vConductor extends javax.swing.JInternalFrame {
 
         txtPrecioHora.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPrecioHora.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtPrecioHora.setBorder(null);
         txtPrecioHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioHoraActionPerformed(evt);
             }
         });
-
-        jSeparator19.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator19.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator19.setOpaque(true);
-        jSeparator19.setPreferredSize(new java.awt.Dimension(50, 1));
-
-        jSeparator20.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator20.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator20.setOpaque(true);
-        jSeparator20.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
@@ -358,26 +313,16 @@ public class vConductor extends javax.swing.JInternalFrame {
         jSeparator21.setOpaque(true);
         jSeparator21.setPreferredSize(new java.awt.Dimension(50, 1));
 
-        jSeparator22.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator22.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator22.setOpaque(true);
-        jSeparator22.setPreferredSize(new java.awt.Dimension(50, 1));
-
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Número de licencia:");
 
         cbTipoLicencia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbTipoLicencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "F", "C", "C1" }));
+        cbTipoLicencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "A", "B", "F", "C", "C1" }));
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Tipo de licencia:");
-
-        jSeparator24.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator24.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator24.setOpaque(true);
-        jSeparator24.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -386,19 +331,12 @@ public class vConductor extends javax.swing.JInternalFrame {
         btnExaminar.setText("Examinar");
 
         txtNombre1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNombre1.setBorder(null);
 
         txtApellido2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtApellido2.setBorder(null);
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setText("Segundo Apellido:");
-
-        jSeparator23.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator23.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator23.setOpaque(true);
-        jSeparator23.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jdcFechaNac.setDateFormatString("yyyy-MM-dd");
         jdcFechaNac.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -409,28 +347,16 @@ public class vConductor extends javax.swing.JInternalFrame {
         jLabel20.setText("Dirección:");
 
         txtDireccion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtDireccion.setBorder(null);
-
-        jSeparator25.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator25.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator25.setOpaque(true);
-        jSeparator25.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jLabel21.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setText("$.");
 
         txtCorreo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtCorreo.setBorder(null);
 
         jLabel22.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(51, 51, 51));
         jLabel22.setText("Correo:");
-
-        jSeparator26.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator26.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator26.setOpaque(true);
-        jSeparator26.setPreferredSize(new java.awt.Dimension(50, 1));
 
         cbSexo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Masculino", "Femenino" }));
@@ -441,7 +367,6 @@ public class vConductor extends javax.swing.JInternalFrame {
 
         txtSueldo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtSueldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtSueldo.setBorder(null);
         txtSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSueldoActionPerformed(evt);
@@ -451,11 +376,6 @@ public class vConductor extends javax.swing.JInternalFrame {
         jLabel23.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(51, 51, 51));
         jLabel23.setText("$.");
-
-        jSeparator27.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator27.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator27.setOpaque(true);
-        jSeparator27.setPreferredSize(new java.awt.Dimension(50, 1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -467,24 +387,15 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,16 +404,12 @@ public class vConductor extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(txtApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -514,24 +421,15 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -550,12 +448,10 @@ public class vConductor extends javax.swing.JInternalFrame {
                         .addComponent(txtPrecioHora, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,10 +469,8 @@ public class vConductor extends javax.swing.JInternalFrame {
                         .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jSeparator22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,21 +479,15 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -607,18 +495,13 @@ public class vConductor extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(29, 29, 29)
+                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jLabel19))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -631,30 +514,22 @@ public class vConductor extends javax.swing.JInternalFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jLabel9))
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
@@ -664,31 +539,24 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(txtPrecioHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2)
+                        .addComponent(txtPrecioHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(btnExaminar))
                 .addGap(6, 6, 6)
                 .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jScrollPane.setViewportView(jPanel3);
@@ -753,11 +621,9 @@ public class vConductor extends javax.swing.JInternalFrame {
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("Buscar...");
-        btnBuscar.setBorder(null);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtBuscar.setBorder(null);
         txtBuscar.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtBuscar.setOpaque(true);
         txtBuscar.setPreferredSize(new java.awt.Dimension(64, 17));
@@ -765,19 +631,12 @@ public class vConductor extends javax.swing.JInternalFrame {
         txtBuscar.setSelectionColor(new java.awt.Color(204, 204, 204));
 
         cbColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbColumnas.setForeground(new java.awt.Color(51, 51, 51));
         cbColumnas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Conductor", "Licencia", "Salario", "Cedula" }));
-        cbColumnas.setBorder(null);
         cbColumnas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbColumnasActionPerformed(evt);
             }
         });
-
-        jSeparator13.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator13.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator13.setOpaque(true);
-        jSeparator13.setPreferredSize(new java.awt.Dimension(50, 1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -787,25 +646,22 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addGap(9, 9, 9)
                 .addComponent(cbColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbColumnas)
+                    .addComponent(cbColumnas, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(14, 14, 14))
         );
 
@@ -817,9 +673,7 @@ public class vConductor extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -882,24 +736,12 @@ public class vConductor extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator17;
-    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator21;
-    private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JSeparator jSeparator23;
-    private javax.swing.JSeparator jSeparator24;
-    private javax.swing.JSeparator jSeparator25;
-    private javax.swing.JSeparator jSeparator26;
-    private javax.swing.JSeparator jSeparator27;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JToolBar jToolBar;
     private javax.swing.JButton jbOK;
     private javax.swing.JButton jb_ModoEditar;

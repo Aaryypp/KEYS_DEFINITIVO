@@ -95,10 +95,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         return txtDireccion;
     }
 
-    public JTextField getTxtID() {
-        return txtID;
-    }
-
     public JTextField getTxtNombre1() {
         return txtNombre1;
     }
@@ -159,9 +155,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         txtCorreo = new javax.swing.JTextField();
         jSeparator37 = new javax.swing.JSeparator();
         jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        jSeparator39 = new javax.swing.JSeparator();
         jLabel40 = new javax.swing.JLabel();
         jSeparator40 = new javax.swing.JSeparator();
         jLabel41 = new javax.swing.JLabel();
@@ -347,22 +340,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jLabel38.setForeground(new java.awt.Color(51, 51, 51));
         jLabel38.setText("Sexo:");
 
-        jLabel39.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel39.setText("ID:");
-
-        txtID.setEditable(false);
-        txtID.setBackground(new java.awt.Color(255, 255, 255));
-        txtID.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtID.setForeground(new java.awt.Color(0, 153, 204));
-        txtID.setText("Autogenerado");
-        txtID.setBorder(null);
-
-        jSeparator39.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator39.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator39.setOpaque(true);
-        jSeparator39.setPreferredSize(new java.awt.Dimension(50, 1));
-
         jLabel40.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(51, 51, 51));
         jLabel40.setText("Contraseña:");
@@ -466,11 +443,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                             .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
                             .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtContraseña))
@@ -491,7 +463,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                         .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator36, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator39, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -558,12 +529,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel38)
                     .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel39)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -591,7 +556,7 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                         .addComponent(btnExaminar)
                         .addGap(6, 6, 6)
                         .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jScrollPane.setViewportView(jPanel3);
@@ -787,7 +752,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -807,7 +771,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator35;
     private javax.swing.JSeparator jSeparator36;
     private javax.swing.JSeparator jSeparator37;
-    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JSeparator jSeparator40;
     private javax.swing.JToolBar.Separator jSeparator5;
@@ -831,7 +794,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre1;
     private javax.swing.JTextField txtNombre2;
     private javax.swing.JTextField txtSueldo;

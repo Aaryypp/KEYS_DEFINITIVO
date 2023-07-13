@@ -2,33 +2,28 @@ package vista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
 
 public class vExtras extends javax.swing.JInternalFrame {
 
     public vExtras() {
         initComponents();
-        
     }
 
     public JButton getBtnBuscar() {
         return btnBuscar;
     }
 
+    public JComboBox<String> getCbCategoria() {
+        return cbCategoria;
+    }
+
     public JComboBox<String> getCbColumnas() {
         return cbColumnas;
     }
-
-    public JComboBox<String> getCb_marca() {
-        return cb_categoria;
-    }
-
-    public JComboBox<String> getCb_categoria() {
-        return cb_categoria;
-    }
-
-   
 
     public JButton getJbOK() {
         return jbOK;
@@ -46,25 +41,29 @@ public class vExtras extends javax.swing.JInternalFrame {
         return jb_ModoVista;
     }
 
-    public JTable getJtCamiones() {
-        return jtCamiones;
+    public JTable getJtExtras() {
+        return jtExtras;
+    }
+
+    public JLabel getLbModo() {
+        return lbModo;
     }
 
     public JTextField getTxtBuscar() {
         return txtBuscar;
     }
 
-    public JTextField getTxt_matricula() {
-        return txt_matricula;
+    public JTextField getTxtExistencias() {
+        return txtExistencias;
     }
 
-    public JTextField getTxt_potencia() {
-        return txt_potencia;
+    public JTextField getTxtNombre() {
+        return txtNombre;
     }
 
-    
-    
-
+    public JTextField getTxtPrecio() {
+        return txtPrecio;
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -78,21 +77,25 @@ public class vExtras extends javax.swing.JInternalFrame {
         jb_ModoNuevo = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jb_ModoVista = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lbModo = new javax.swing.JLabel();
         jbOK = new javax.swing.JButton();
         jScrollPane = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txt_matricula = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        cb_categoria = new javax.swing.JComboBox<>();
+        cbCategoria = new javax.swing.JComboBox<>();
         jSeparator14 = new javax.swing.JSeparator();
-        txt_potencia = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         JTextField1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        JTextField2 = new javax.swing.JTextField();
+        txtExistencias = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtCamiones = new javax.swing.JTable();
+        jtExtras = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
@@ -153,12 +156,12 @@ public class vExtras extends javax.swing.JInternalFrame {
         jb_ModoVista.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar.add(jb_ModoVista);
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("(Modo) Extras");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
+        lbModo.setBackground(new java.awt.Color(255, 255, 255));
+        lbModo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbModo.setForeground(new java.awt.Color(0, 102, 153));
+        lbModo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbModo.setText("(Modo) Extras");
+        lbModo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
 
         jbOK.setBackground(new java.awt.Color(0, 102, 153));
         jbOK.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -174,14 +177,9 @@ public class vExtras extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Nombre:");
 
-        txt_matricula.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txt_matricula.setForeground(new java.awt.Color(0, 153, 204));
-        txt_matricula.setBorder(null);
-        txt_matricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_matriculaActionPerformed(evt);
-            }
-        });
+        txtNombre.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(0, 153, 204));
+        txtNombre.setBorder(null);
 
         jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator6.setMinimumSize(new java.awt.Dimension(50, 1));
@@ -192,36 +190,45 @@ public class vExtras extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Categoria:");
 
-        cb_categoria.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        cb_categoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_categoriaActionPerformed(evt);
-            }
-        });
+        cbCategoria.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         jSeparator14.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator14.setMinimumSize(new java.awt.Dimension(50, 1));
         jSeparator14.setOpaque(true);
         jSeparator14.setPreferredSize(new java.awt.Dimension(50, 1));
 
-        txt_potencia.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txt_potencia.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txt_potencia.setBorder(null);
+        txtPrecio.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtPrecio.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPrecio.setBorder(null);
 
         JTextField1.setEditable(false);
         JTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        JTextField1.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        JTextField1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         JTextField1.setText("$.");
         JTextField1.setBorder(null);
-        JTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Precio:");
+
+        jSeparator15.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator15.setMinimumSize(new java.awt.Dimension(50, 1));
+        jSeparator15.setOpaque(true);
+        jSeparator15.setPreferredSize(new java.awt.Dimension(50, 1));
+
+        JTextField2.setEditable(false);
+        JTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        JTextField2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        JTextField2.setText("unidades.");
+        JTextField2.setBorder(null);
+
+        txtExistencias.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtExistencias.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtExistencias.setBorder(null);
+
+        jLabel14.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setText("Existencias:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -233,23 +240,27 @@ public class vExtras extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(41, 41, 41)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txt_potencia, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(jSeparator15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtExistencias, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(27, 27, 27))
         );
         jPanel3Layout.setVerticalGroup(
@@ -258,21 +269,29 @@ public class vExtras extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_matricula))
+                    .addComponent(txtNombre))
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(cb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_potencia)
+                        .addComponent(txtPrecio)
                         .addComponent(JTextField1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtExistencias)
+                        .addComponent(JTextField2)))
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(149, Short.MAX_VALUE))
         );
 
@@ -289,7 +308,7 @@ public class vExtras extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbModo, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -299,7 +318,7 @@ public class vExtras extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbModo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                 .addGap(6, 6, 6)
@@ -309,13 +328,13 @@ public class vExtras extends javax.swing.JInternalFrame {
 
         jScrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        jtCamiones = new javax.swing.JTable(){
+        jtExtras = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
         };
-        jtCamiones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtCamiones.setModel(new javax.swing.table.DefaultTableModel(
+        jtExtras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtExtras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -323,10 +342,11 @@ public class vExtras extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jtCamiones);
+        jScrollPane1.setViewportView(jtExtras);
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 153));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Lista de extras");
         jLabel2.setOpaque(true);
@@ -335,7 +355,7 @@ public class vExtras extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/lupa (1).png"))); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("Buscar...");
         btnBuscar.setBorder(null);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -347,11 +367,6 @@ public class vExtras extends javax.swing.JInternalFrame {
         txtBuscar.setPreferredSize(new java.awt.Dimension(64, 17));
         txtBuscar.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtBuscar.setSelectionColor(new java.awt.Color(204, 204, 204));
-        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarActionPerformed(evt);
-            }
-        });
 
         cbColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbColumnas.setForeground(new java.awt.Color(51, 51, 51));
@@ -419,32 +434,17 @@ public class vExtras extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_matriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_matriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_matriculaActionPerformed
-
-    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarActionPerformed
-
-    private void JTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField1ActionPerformed
-
-    private void cb_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_categoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_categoriaActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField1;
+    private javax.swing.JTextField JTextField2;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbColumnas;
-    private javax.swing.JComboBox<String> cb_categoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -453,6 +453,7 @@ public class vExtras extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
@@ -463,9 +464,11 @@ public class vExtras extends javax.swing.JInternalFrame {
     private javax.swing.JButton jb_ModoEditar;
     private javax.swing.JButton jb_ModoNuevo;
     private javax.swing.JButton jb_ModoVista;
-    private javax.swing.JTable jtCamiones;
+    private javax.swing.JTable jtExtras;
+    private javax.swing.JLabel lbModo;
     private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txt_matricula;
-    private javax.swing.JTextField txt_potencia;
+    private javax.swing.JTextField txtExistencias;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,8 +4,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelo.tablas.Conductor;
 
 public class mConductor extends Conductor {
@@ -14,14 +12,14 @@ public class mConductor extends Conductor {
     public static ResultSet rs = null;
     public static String sql;
 
-    public List<Conductor> listar(int id) {
+    public List<Conductor> listar(String licencia) {
 
         List<Conductor> conductores = new ArrayList<>();
         try {
-            if (id == 0) {
+            if (licencia.isEmpty()) {
                 sql = "SELECT id, id_empleado, licencia, tipo_licencia, precio_hora FROM Conductor";
             } else {
-                sql = "SELECT id, id_empleado, licencia, tipo_licencia, precio_hora FROM Conductor WHERE id=" + id;
+                sql = "SELECT id, id_empleado, licencia, tipo_licencia, precio_hora FROM Conductor WHERE licencia='"+licencia+"'";
             }
             rs = con.consulta(sql);
 
@@ -45,12 +43,12 @@ public class mConductor extends Conductor {
     }
 
     public boolean actualizar() {
-        sql = "UPDATE Conductor SET tipo_licencia='" + getTipo_licencia() + "', precio_hora=" + getPrecio_hora() + " WHERE id =" + getId_con();
+        sql = "UPDATE Conductor SET tipo_licencia='" + getTipo_licencia() + "', precio_hora=" + getPrecio_hora() + " WHERE licencia='"+getLicencia()+"'";
         return con.accion(sql);
     }
 
     public boolean eliminar() {
-        sql = "DELETE FROM Conductor WHERE id = " + getId_con();
+        sql = "DELETE FROM Conductor WHERE licencia='"+getLicencia()+"'";
         return con.accion(sql);
     }
 
@@ -74,7 +72,6 @@ public class mConductor extends Conductor {
 
     public ResultSet join(int id) {
         try {
-            List<Conductor> conductores = new ArrayList<>();
             sql = "SELECT p.cedula, p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.fecha_nac, p.telefono, p.direccion, p.correo, \n"
                     + "p.sexo, p.id_imagen, e.salario , c.licencia, c.tipo_licencia, c.precio_hora \n"
                     + "FROM conductor c JOIN empleado e ON(c.id_empleado = e.id)JOIN persona p ON(e.cedula_per = p.cedula) WHERE c.id = " + id;
@@ -85,4 +82,5 @@ public class mConductor extends Conductor {
             return null;
         }
     }
+   
 }
