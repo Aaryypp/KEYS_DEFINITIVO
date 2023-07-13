@@ -4,7 +4,6 @@ import controlador.otros.Validar;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -28,7 +27,6 @@ import vista.vConductor;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -64,21 +62,21 @@ public class cConductor {
         listar();
         modo("Registrar");
         vista.getJbOK().setText("Registrar");
-        vista.getLbFoto().setText("Registrar conductor");
+        vista.getLbModo().setText("Registrar conductor");
         seleccionar(vista.getJtConductores());
         vista.getJb_ModoNuevo().addActionListener(l-> {
             vista.getJbOK().setText("Registrar");
-            vista.getLbFoto().setText("Registrar conductor");
+            vista.getLbModo().setText("Registrar conductor");
             modo("Registrar");
                 });
         vista.getJb_ModoEditar().addActionListener(l-> {
             vista.getJbOK().setText("Actualizar");
-            vista.getLbFoto().setText("Actualizar conductor");
+            vista.getLbModo().setText("Actualizar conductor");
             modo("Actualizar");
                 });
         vista.getJb_ModoVista().addActionListener(l-> {
             vista.getJbOK().setText("Eliminar");
-            vista.getLbFoto().setText("Eliminar conductor");
+            vista.getLbModo().setText("Eliminar conductor");
             modo("Eliminar");
                 });
         vista.getJbOK().addActionListener(l-> OK());
