@@ -25,10 +25,9 @@ public final class cPrincipal {
 
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
-        
     }
 
-    public void iniciar(){
+    public void iniciar() {
         vista.setVisible(true);
         vista.setExtendedState(vPrincipal.MAXIMIZED_BOTH);
         setBordeButton();
@@ -115,7 +114,7 @@ public final class cPrincipal {
 
     public void setBordeButton() {
         UIManager.put("Button.arc", 100);
-        UIManager.put("Component.arc", 0);
+        UIManager.put("Component.arc", 100);
         UIManager.put("ProgressBar.arc", 100);
         UIManager.put("TextComponent.arc", 100);
     }

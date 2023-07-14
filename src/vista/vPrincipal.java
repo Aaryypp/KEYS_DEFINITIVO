@@ -1,7 +1,4 @@
 package vista;
-
-
-
 import controlador.otros.RoundedLabel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
