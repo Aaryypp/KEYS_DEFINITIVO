@@ -48,14 +48,14 @@ public class mConductor extends Conductor {
     }
 
     public boolean eliminar() {
-        sql = "DELETE FROM Conductor WHERE licencia='"+getLicencia()+"'";
+        sql = "DELETE FROM Conductor WHERE id="+getId_con();
         return con.accion(sql);
     }
 
     public List<Conductor> buscar(String txt, String campo) {
         List<Conductor> conductores = new ArrayList<>();
         try {
-            sql = "SELECT id, id_empleado, licencia, tipo_licencia, precio_hora FROM Conductor WHERE" + campo + " like '%" + txt + "'";
+            sql = "SELECT id, id_empleado, licencia, tipo_licencia, precio_hora FROM Conductor WHERE " + campo + " like '%" + txt + "'";
             rs = con.consulta(sql);
             if (rs != null) {
                 while (rs.next()) {

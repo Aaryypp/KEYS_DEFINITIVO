@@ -37,4 +37,9 @@ public class Imagen {
     public void setValor(byte[] valor) {
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Imagen{" + "id=" + id + ", nombre=" + nombre + ", valor=" + valor + '}';
+    }
 }

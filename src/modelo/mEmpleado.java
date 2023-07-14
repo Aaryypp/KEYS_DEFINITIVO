@@ -53,7 +53,7 @@ public class mEmpleado extends Empleado{
     public List<Empleado> buscar(String txt, String campo) {
         List<Empleado> empleados = new ArrayList<>();
         try {
-            sql = "SELECT id, cedula_per, contraseña, id_cargo, salario FROM Empleado WHERE" + campo + " like '%" + txt + "'";
+            sql = "SELECT id, cedula_per, contraseña, id_cargo, salario FROM Empleado WHERE " + campo + " like '%" + txt + "'";
             rs = con.consulta(sql);
             if (rs != null) {
                 while (rs.next()) {

@@ -58,5 +58,8 @@ public class Conductor  {
         this.precio_hora = precio_hora;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Conductor{" + "id_con=" + id_con + ", id_empleado=" + id_empleado + ", licencia=" + licencia + ", tipo_licencia=" + tipo_licencia + ", precio_hora=" + precio_hora + '}';
+    }
 }

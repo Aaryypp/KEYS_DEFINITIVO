@@ -18,8 +18,6 @@ public class Empleado {
         this.salario = salario;
     }
 
-    
-
     public int getId() {
         return id;
     }
@@ -58,5 +56,10 @@ public class Empleado {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "id=" + id + ", cedula_per=" + cedula_per + ", contrase\u00f1a=" + contraseña + ", id_cargo=" + id_cargo + ", salario=" + salario + '}';
     }
 }

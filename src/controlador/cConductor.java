@@ -27,6 +27,13 @@ import vista.vConductor;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -156,11 +163,14 @@ public class cConductor {
                                 registrar();
                             }
                             if (vista.getJbOK().getText().equals("Actualizar")) {
+                                modelo.setId_con(id);
                                 actualizar();
                             }
                             if (vista.getJbOK().getText().equals("Eliminar")) {
+                                modelo.setId_con(id);
                                 if (modelo.eliminar()) {
                                     JOptionPane.showMessageDialog(null, "¡Eliminación exitosa!", null, JOptionPane.INFORMATION_MESSAGE);
+                                    listar();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "¡Este conductor está registrado en un contrato'!", "Eliminación restringida", JOptionPane.ERROR_MESSAGE);
                                 }
@@ -189,8 +199,12 @@ public class cConductor {
 
     public void registrar() {
         conductores = modelo.buscar(vista.getTxtLicencia().getText(), "licencia");
+        System.out.println(conductores.toString());
         persona = mp.buscar(vista.getTxtCedula().getText(), "cedula");
+        System.out.println(persona.toString());
         empleado = me.buscar(vista.getTxtCedula().getText(), "cedula");
+        System.out.println(empleado.toString());
+        
         if (conductores.isEmpty()) {
             if (persona.isEmpty() && empleado.isEmpty()) {
                 setearPersona();
@@ -233,6 +247,7 @@ public class cConductor {
         mp.setCorreo(vista.getTxtCorreo().getText());
         mp.setSexo(vista.getCbSexo().getSelectedItem().toString());
         setImagen();
+        System.out.println(mi.toString());
         mp.setId_imagen(mi.ultimoID());
     }
     public void setearEmpleado(){
@@ -322,12 +337,12 @@ public class cConductor {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter( "Seleccione una imagen JPG, PNG & GIF","jpg","png","gif");
         fileChooser.setFileFilter(extensionFilter);
-    
         if (fileChooser.showOpenDialog(vista)== JFileChooser.APPROVE_OPTION) {
             ruta = fileChooser.getSelectedFile().getAbsolutePath();
             Image image = new ImageIcon(ruta).getImage();
             ImageIcon icon = new ImageIcon(image.getScaledInstance(vista.getLbFoto().getWidth(), vista.getLbFoto().getHeight(), 0));
             vista.getLbFoto().setIcon(icon);
+            setImagen();
         }
     }
     
@@ -342,9 +357,21 @@ public class cConductor {
             return null;
         }
     }
-    public void setImagen(){
-        mi.setNombre(ruta);
-        mi.setValor(getByte(ruta));
-        mi.crear();
+
+    public void setImagen() {
+        try {
+            File file = new File(ruta);
+            byte[] imagen = new byte[(int) file.length()];
+            try (FileInputStream fis = new FileInputStream(file)) {
+                fis.read(imagen);
+            } catch (IOException ex) {
+                Logger.getLogger(cConductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            mi.setNombre(file.getName());
+            mi.setValor(imagen);
+            mi.crear();
+        } catch (Exception ex) {
+            Logger.getLogger(cConductor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

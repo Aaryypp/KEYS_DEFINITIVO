@@ -92,11 +92,6 @@ public class vPrincipal extends javax.swing.JFrame {
         button1 = new controlador.otros.Button();
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jdPrincipal = new javax.swing.JDesktopPane();
-        jtbMENU = new javax.swing.JToolBar();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new RoundedLabel("", 250, 0x221C37, 0x221C37, 1.0f)
         ;
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -298,27 +293,6 @@ public class vPrincipal extends javax.swing.JFrame {
             .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        jtbMENU.setFloatable(false);
-        jtbMENU.setRollover(true);
-
-        jSeparator2.setForeground(new java.awt.Color(242, 242, 242));
-        jSeparator2.setSeparatorSize(new java.awt.Dimension(10, 0));
-        jtbMENU.add(jSeparator2);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/empleado.png"))); // NOI18N
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jtbMENU.add(jButton1);
-
-        jSeparator3.setForeground(new java.awt.Color(242, 242, 242));
-        jSeparator3.setSeparatorSize(new java.awt.Dimension(20, 0));
-        jtbMENU.add(jSeparator3);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/coche.png"))); // NOI18N
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jtbMENU.add(jButton2);
-
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -418,28 +392,21 @@ public class vPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(553, 553, 553)
-                .addComponent(jtbMENU, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtbMENU, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jdPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -450,8 +417,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_fondo;
     private controlador.otros.Background background1;
     private controlador.otros.Button button1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -476,8 +441,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JButton jbGuardarTema;
     private javax.swing.JDialog jdLogin;
     private javax.swing.JDesktopPane jdPrincipal;
@@ -485,7 +448,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JList<String> jlTemas;
     private javax.swing.JMenuItem jmSalir;
     private javax.swing.JMenuItem jmTemas;
-    private javax.swing.JToolBar jtbMENU;
     private javax.swing.JMenuItem miAlquiler;
     private javax.swing.JMenuItem miAutomovil;
     private javax.swing.JMenuItem miCliente;

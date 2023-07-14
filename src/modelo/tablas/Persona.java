@@ -119,4 +119,9 @@ public class Persona {
     public void setId_imagen(int id_imagen) {
         this.id_imagen = id_imagen;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombre1=" + nombre1 + ", nombre2=" + nombre2 + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", fecha_nac=" + fecha_nac + ", telefono=" + telefono + ", direccion=" + direccion + ", correo=" + correo + ", sexo=" + sexo + ", id_imagen=" + id_imagen + '}';
+    }
 }
