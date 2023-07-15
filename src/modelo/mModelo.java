@@ -17,10 +17,10 @@ public class mModelo extends Modelo {
     public List<Modelo> listar(int id) {
         List<Modelo> modelos = new ArrayList<>();
         try {
-            if ("".equals(id)) {
-                sql = "SELECT id, nombre, id_marca FROM modelo";
+            if (id ==0) {
+//                sql = "SELECT id, nombre, id_marca FROM modelo";
             } else {
-                sql = "SELECT id, nombre, id_marca FROM modelo WHERE id=" + id + "";
+                sql = "SELECT id, nombre, id_marca FROM modelo WHERE id_marca=" + id + "";
             }
             rs = con.consulta(sql);
             if (rs != null) {

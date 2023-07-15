@@ -36,20 +36,12 @@ public class vAuto extends javax.swing.JInternalFrame {
         return cbCategoria;
     }
 
-    public JComboBox<String> getCbColor() {
-        return cbColor;
-    }
-
     public JComboBox<String> getCbColumnas() {
         return cbColumnas;
     }
 
     public JComboBox<String> getCbMarca() {
         return cbMarca;
-    }
-
-    public JComboBox<String> getCbModelo() {
-        return cbModelo;
     }
 
     public JButton getJbOK() {
@@ -83,7 +75,30 @@ public class vAuto extends javax.swing.JInternalFrame {
     public JTextField getTxtPrecio() {
         return txtPrecio;
     }
-    
+
+    public JTextField getTxtColor() {
+        return txtColor;
+    }
+
+    public void setTxtColor(JTextField txtColor) {
+        this.txtColor = txtColor;
+    }
+
+    public JTextField getTxt_Modelo() {
+        return txt_Modelo;
+    }
+
+    public void setTxt_Modelo(JTextField txt_Modelo) {
+        this.txt_Modelo = txt_Modelo;
+    }
+
+    public JComboBox<String> getCbModelo() {
+        return cbModelo;
+    }
+
+    public void setCbModelo(JComboBox<String> cbModelo) {
+        this.cbModelo = cbModelo;
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -107,10 +122,8 @@ public class vAuto extends javax.swing.JInternalFrame {
         cbCategoria = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         cbMarca = new javax.swing.JComboBox<>();
-        cbModelo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cbColor = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         JTextField1 = new javax.swing.JTextField();
         lbFoto = new javax.swing.JLabel();
@@ -124,6 +137,10 @@ public class vAuto extends javax.swing.JInternalFrame {
         JTextField2 = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
+        txtColor = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        txt_Modelo = new javax.swing.JTextField();
+        cbModelo = new javax.swing.JComboBox<>();
         jbOK = new javax.swing.JButton();
         lbModo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -202,19 +219,11 @@ public class vAuto extends javax.swing.JInternalFrame {
         cbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbMarca.setPreferredSize(new java.awt.Dimension(64, 26));
 
-        cbModelo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        cbModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbModelo.setPreferredSize(new java.awt.Dimension(64, 26));
-
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel6.setText("Modelo:");
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel8.setText("Color:");
-
-        cbColor.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        cbColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbColor.setPreferredSize(new java.awt.Dimension(64, 26));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel9.setText("Precio:");
@@ -273,6 +282,23 @@ public class vAuto extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel12.setText("Imagen:");
 
+        txtColor.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtColor.setForeground(new java.awt.Color(0, 153, 204));
+        txtColor.setBorder(null);
+
+        jSeparator9.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator9.setMinimumSize(new java.awt.Dimension(50, 1));
+        jSeparator9.setOpaque(true);
+        jSeparator9.setPreferredSize(new java.awt.Dimension(50, 1));
+
+        txt_Modelo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txt_Modelo.setForeground(new java.awt.Color(0, 153, 204));
+        txt_Modelo.setBorder(null);
+
+        cbModelo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        cbModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbModelo.setPreferredSize(new java.awt.Dimension(64, 26));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -294,10 +320,8 @@ public class vAuto extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbCategoria, 0, 196, Short.MAX_VALUE)
+                            .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtMatricula)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -310,8 +334,12 @@ public class vAuto extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(23, 23, 23))
+                            .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtColor)
+                            .addComponent(txt_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,11 +362,15 @@ public class vAuto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cbModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(2, 2, 2)
+                .addComponent(txt_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -370,7 +402,7 @@ public class vAuto extends javax.swing.JInternalFrame {
         jbOK.setBackground(new java.awt.Color(0, 102, 153));
         jbOK.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbOK.setForeground(new java.awt.Color(255, 255, 255));
-        jbOK.setText("OK");
+        jbOK.setText("REGISTRAR");
         jbOK.setBorder(null);
         jbOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -435,7 +467,7 @@ public class vAuto extends javax.swing.JInternalFrame {
 
         cbColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbColumnas.setForeground(new java.awt.Color(51, 51, 51));
-        cbColumnas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Conductor", "Licencia", "Salario", "Cedula" }));
+        cbColumnas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matrícula", "Modelo" }));
         cbColumnas.setBorder(null);
         cbColumnas.setPreferredSize(new java.awt.Dimension(121, 24));
         cbColumnas.addActionListener(new java.awt.event.ActionListener() {
@@ -447,7 +479,6 @@ public class vAuto extends javax.swing.JInternalFrame {
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtBuscar.setBorder(null);
         txtBuscar.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        txtBuscar.setOpaque(true);
         txtBuscar.setPreferredSize(new java.awt.Dimension(64, 17));
         txtBuscar.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtBuscar.setSelectionColor(new java.awt.Color(204, 204, 204));
@@ -481,7 +512,7 @@ public class vAuto extends javax.swing.JInternalFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(cbColumnas, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -536,7 +567,6 @@ public class vAuto extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_ModoNuevo;
     private javax.swing.JButton btn_ModoVista;
     private javax.swing.JComboBox<String> cbCategoria;
-    private javax.swing.JComboBox<String> cbColor;
     private javax.swing.JComboBox<String> cbColumnas;
     private javax.swing.JComboBox<String> cbMarca;
     private javax.swing.JComboBox<String> cbModelo;
@@ -563,14 +593,17 @@ public class vAuto extends javax.swing.JInternalFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton jbOK;
     private javax.swing.JTable jtAutos;
     private javax.swing.JLabel lbFoto;
     private javax.swing.JLabel lbModo;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtPotencia;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txt_Modelo;
     // End of variables declaration//GEN-END:variables
 }

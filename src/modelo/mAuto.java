@@ -35,16 +35,13 @@ public class mAuto extends Auto {
     }
 
     public boolean crear() {
-        sql = "INSERT INTO Auto (matricula, id_categoria, id_modelo, color, precio_diario, id_estado, capacidad, potencia, id_imagen)"
+        sql = "INSERT INTO Auto (matricula, id_categoria, modelo, color, precio_diario, potencia)"
                 + " VALUES ('" + getMatricula()
                 + "'," + getId_categoria()
                 + "," + getId_modelo()
                 + ",'" + getColor()
                 + "'," + getPrecio_diario()
-                + "," + getId_estado()
-                + "," + getCapacidad()
-                + "," + getPotencia()
-                + "," + getId_imagen() + ")";
+                + "," + getPotencia()+")";
         return con.accion(sql);
     }
 
@@ -85,6 +82,19 @@ public class mAuto extends Auto {
             }
             con.close();
             return autos;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
+    public ResultSet join(int id) {
+        try {
+            sql = "SELECT p.cedula, p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.fecha_nac, p.telefono, p.direccion, p.correo, \n"
+                    + "p.sexo, p.id_imagen, e.salario , c.licencia, c.tipo_licencia, c.precio_hora \n"
+                    + "FROM conductor c JOIN empleado e ON(c.id_empleado = e.id)JOIN persona p ON(e.cedula_per = p.cedula) WHERE c.id = " + id;
+            rs = con.consulta(sql);
+            rs.next();
+            return rs;
         } catch (SQLException ex) {
             return null;
         }

@@ -15,7 +15,7 @@ public class mMarca extends Marca {
     public List<Marca> listar(int id) {
         List<Marca> marcas = new ArrayList<>();
         try {
-            if ("".equals(id)) {
+            if (id ==0) {
                 sql = "SELECT id, nombre FROM marca";
             } else {
                 sql = "SELECT id, nombre FROM marca WHERE id=" + id + "";

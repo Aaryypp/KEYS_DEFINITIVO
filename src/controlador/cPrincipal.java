@@ -12,8 +12,10 @@ import controlador.otros.RoundedLabel;
 import java.io.IOException;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import modelo.mAuto;
 import modelo.mCliente;
 import modelo.mConductor;
+import vista.vAuto;
 import vista.vCliente;
 import vista.vConductor;
 import vista.vPrincipal;
@@ -22,7 +24,7 @@ public final class cPrincipal {
     vPrincipal vista;
     vCliente vcliente;
     vConductor vconductor;
-
+    vAuto vauto;
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
     }
@@ -36,7 +38,7 @@ public final class cPrincipal {
         vista.getJmSalir().addActionListener(l-> verJdLogin(true));
         vista.getMiCliente().addActionListener(l->menuPersona());
         vista.getMiConductor().addActionListener(l-> menuConductor());
-        
+        vista.getMiAutomovil().addActionListener(l-> MenuAutos());
         String imagePath = "src/vista/img/logo.png";
         try {
             RoundedLabel rl = new RoundedLabel();
@@ -158,5 +160,17 @@ public final class cPrincipal {
         }
         
         cConductor c_conductor = new cConductor(m_conductor, vconductor);
+    }
+    
+    public void MenuAutos(){
+        mAuto modeloAutos = new mAuto();
+        try {
+            vista.getJdPrincipal().add(vauto);
+        } catch (Exception e) {
+            vauto = new vAuto();
+            vista.getJdPrincipal().add(vauto);
+        }
+        cAuto contolAutomovil = new cAuto(modeloAutos,vauto);
+        contolAutomovil.iniciarCtrlBtn();
     }
 }
