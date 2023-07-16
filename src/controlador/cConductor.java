@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.otros.FiltrarTabla;
 import controlador.otros.RoundedLabel;
 import controlador.otros.Validar;
 import java.awt.HeadlessException;
@@ -444,5 +445,13 @@ public final class cConductor {
                 Validar.dinero(vista.getTxtPrecioHora(), 7);
             }
         });
+
+        vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                FiltrarTabla.filtrar(vista.getJtConductores(), vista.getTxtBuscar(), vista.getCbColumnas());
+            }
+        });
     }
+    
 }
