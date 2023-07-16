@@ -65,6 +65,11 @@ public class vPrincipal extends javax.swing.JFrame {
         return miEmpleado;
     }
 
+    public JMenuItem getMiExtras() {
+        return miExtras;
+    }
+    
+
     public JDesktopPane getJdPrincipal() {
         return jdPrincipal;
     }
@@ -111,6 +116,7 @@ public class vPrincipal extends javax.swing.JFrame {
         miAutomovil = new javax.swing.JMenuItem();
         miAlquiler = new javax.swing.JMenuItem();
         miDevolución = new javax.swing.JMenuItem();
+        miExtras = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -393,6 +399,9 @@ public class vPrincipal extends javax.swing.JFrame {
         miDevolución.setText("Devolución");
         jMenu6.add(miDevolución);
 
+        miExtras.setText("Extras");
+        jMenu6.add(miExtras);
+
         jMenu3.add(jMenu6);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/impresora.png"))); // NOI18N
@@ -483,6 +492,7 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConductor;
     private javax.swing.JMenuItem miDevolución;
     private javax.swing.JMenuItem miEmpleado;
+    private javax.swing.JMenuItem miExtras;
     private controlador.otros.PasswordField passwordField1;
     private controlador.otros.TextField textField1;
     // End of variables declaration//GEN-END:variables

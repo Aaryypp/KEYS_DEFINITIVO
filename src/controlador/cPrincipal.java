@@ -14,9 +14,11 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import modelo.mAuto;
 import modelo.mCliente;
 import modelo.mConductor;
+import modelo.mExtra;
 import vista.vAuto;
 import vista.vCliente;
 import vista.vConductor;
+import vista.vExtras;
 import vista.vPrincipal;
 
 public final class cPrincipal {
@@ -24,6 +26,7 @@ public final class cPrincipal {
     vCliente vcliente;
     vConductor vconductor;
     vAuto vauto;
+    vExtras vextras;
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
     }
@@ -37,7 +40,8 @@ public final class cPrincipal {
         vista.getJmSalir().addActionListener(l-> verJdLogin(true));
         vista.getMiCliente().addActionListener(l->menuPersona());
         vista.getMiConductor().addActionListener(l-> menuConductor());
-        vista.getMiAutomovil().addActionListener(l-> MenuAutos());
+        vista.getMiAutomovil().addActionListener(l-> MenuAutos()); 
+        vista.getMiExtras().addActionListener(l->menuExtras());
     }
     
     
@@ -164,5 +168,18 @@ public final class cPrincipal {
         }
         cAuto contolAutomovil = new cAuto(modeloAutos,vauto);
         contolAutomovil.iniciarCtrlBtn();
+    }
+           public void menuExtras() {
+
+        mExtra modextra = new mExtra();
+        try {
+            vista.getJdPrincipal().add(vextras);
+        } catch (Exception e) {
+            vextras = new vExtras();
+            vista.getJdPrincipal().add(vextras);
+        }
+        
+        cExtra controlador = new cExtra(modextra, vextras);
+        
     }
 }

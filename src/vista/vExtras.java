@@ -64,6 +64,11 @@ public class vExtras extends javax.swing.JInternalFrame {
     public JTextField getTxtPrecio() {
         return txtPrecio;
     }
+
+    public JTextField getTxtIdExtras() {
+        return txtIdExtras;
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -94,6 +99,8 @@ public class vExtras extends javax.swing.JInternalFrame {
         JTextField2 = new javax.swing.JTextField();
         txtExistencias = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        txtIdExtras = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtExtras = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -200,6 +207,11 @@ public class vExtras extends javax.swing.JInternalFrame {
         txtPrecio.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPrecio.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPrecio.setBorder(null);
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioActionPerformed(evt);
+            }
+        });
 
         JTextField1.setEditable(false);
         JTextField1.setBackground(new java.awt.Color(255, 255, 255));
@@ -229,6 +241,15 @@ public class vExtras extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Existencias:");
+
+        txtIdExtras.setEditable(false);
+        txtIdExtras.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtIdExtras.setForeground(new java.awt.Color(0, 153, 204));
+        txtIdExtras.setText("Autoasignado");
+
+        jLabel15.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel15.setText("ID de Extra:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -260,7 +281,11 @@ public class vExtras extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdExtras, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))
                 .addGap(27, 27, 27))
         );
         jPanel3Layout.setVerticalGroup(
@@ -292,7 +317,11 @@ public class vExtras extends javax.swing.JInternalFrame {
                         .addComponent(JTextField2)))
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtIdExtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jScrollPane.setViewportView(jPanel3);
@@ -434,6 +463,10 @@ public class vExtras extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField1;
     private javax.swing.JTextField JTextField2;
@@ -444,6 +477,7 @@ public class vExtras extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -468,6 +502,7 @@ public class vExtras extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbModo;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtExistencias;
+    private javax.swing.JTextField txtIdExtras;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

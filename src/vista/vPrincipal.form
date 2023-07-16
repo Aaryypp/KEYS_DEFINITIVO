@@ -446,6 +446,11 @@
                     <Property name="text" type="java.lang.String" value="Devoluci&#xf3;n"/>
                   </Properties>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="miExtras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Extras"/>
+                  </Properties>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu5">

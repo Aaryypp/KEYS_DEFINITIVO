@@ -15,7 +15,7 @@ public class mExtra extends Extra {
     public List<Extra> listar(int codigo) {
         List<Extra> extras = new ArrayList<>();
         try {
-            if ("".equals(codigo)) {
+            if (codigo == 0) {
                 sql = "SELECT codigo, nombre, precio, id_categoria, existencias FROM extra";
             } else {
                 sql = "SELECT codigo, nombre, precio, id_categoria, existencias FROM extra WHERE codigo=" + codigo + "";
@@ -37,9 +37,9 @@ public class mExtra extends Extra {
     public boolean crear() {
         sql = "INSERT INTO extra(nombre, precio, existencias, id_categoria)"
                 + " VALUES ('" + getNombre()
-                + "','" + getPrecio()
-                + "','" + getExistencias()
-                + "','" + getId_categoria() + ")";
+                + "'," + getPrecio()
+                + ",'" + getExistencias()
+                + "','" + getId_categoria() + "')";
         System.out.println(sql);
         return con.accion(sql);
     }
@@ -65,7 +65,7 @@ public class mExtra extends Extra {
             rs = con.consulta(sql);
             if (rs != null) {
                 while (rs.next()) {
-                    Extra extra = new Extra(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4),rs.getInt(5));
+                    Extra extra = new Extra(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4), rs.getInt(5));
                     extras.add(extra);
                 }
             }
@@ -87,4 +87,11 @@ public class mExtra extends Extra {
         }
         return codigo;
     }
+     public ResultSet obtener_extra(int ID) {
+        sql = "SELECT * FROM EXTRA WHERE codigo="+ID+""; 
+         System.out.println(sql);
+        rs = con.consulta(sql);
+        return rs;
+    }
+   
 }

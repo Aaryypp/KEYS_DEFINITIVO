@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static modelo.mExtra.con;
+import static modelo.mExtra.rs;
+import static modelo.mExtra.sql;
 import modelo.tablas.Categoria;
 
 public class mCategoria extends Categoria{
@@ -13,13 +16,13 @@ public class mCategoria extends Categoria{
     public static ResultSet rs = null;
     public static String sql;
     
-    public List<Categoria> listar(String id) {
+    public List<Categoria> listar(int id) {
         List<Categoria> Categoria = new ArrayList<>();
         try {
-            if ("".equals(id)) {
+            if (id ==0) {
                 sql = "SELECT id, nombre FROM categoria";
             } else {
-                sql = "SELECT id, nombre FROM categoria WHERE id='"+id+"'";
+                sql = "SELECT id, nombre FROM categoria WHERE id="+id;
             }
             rs = con.consulta(sql);
             if (rs != null) {
@@ -70,10 +73,10 @@ public class mCategoria extends Categoria{
         }
     }
 
-    public boolean existeCategoria(String id) {
+    public boolean existeCategoria(int id) {
         boolean exist = false;
         try {
-            sql = "SELECT COUNT(id)FROM categoria WHERE id=" + id + "";
+            sql = "SELECT COUNT(id)FROM categoria WHERE id="+ id+"";
             System.out.println(sql);
             rs = con.consulta(sql);
             if (rs != null) {
@@ -89,5 +92,15 @@ public class mCategoria extends Categoria{
             Logger.getLogger(mEstado.class.getName()).log(Level.SEVERE, null, ex);
         }
         return exist;
+    }
+      public ResultSet obtener_cate() {
+        sql = "SELECT NOMBRE FROM categoria"; 
+        rs = con.consulta(sql);
+        return rs;
+    }
+      public ResultSet obtener_idcate (String nombre) {
+        sql = "SELECT ID FROM categoria WHERE NOMBRE='"+nombre+"' "; 
+        rs = con.consulta(sql);
+        return rs;
     }
 }

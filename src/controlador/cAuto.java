@@ -207,7 +207,7 @@ public final class cAuto {
     }
     
     public void mostrarCategoria(){
-        categorias = combobox1.listar("");
+        categorias = combobox1.listar(0);
         System.out.println(categorias.size());
         vista.getCbCategoria().removeAllItems();
         categorias.stream().forEach(p -> vista.getCbCategoria().addItem(p.getNombre()));
