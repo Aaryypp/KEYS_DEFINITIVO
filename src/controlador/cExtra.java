@@ -1,6 +1,9 @@
 package controlador;
 
 import static controlador.cCliente.rs;
+import controlador.otros.Validar;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -41,6 +44,7 @@ public class cExtra {
         llenarcate(vista.getCbCategoria());
         accionboton();
         crearmodo();
+        controlKey();
     }
 
     public void iniciarCtrlBtn() {
@@ -221,5 +225,29 @@ public class cExtra {
         }
         return llen;
     }
+    
+        public void controlKey() {
+        vista.getTxtNombre().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e){
+                Validar.letras_espacios(vista.getTxtNombre(), 30); 
+            }
+        });
+        vista.getTxtExistencias().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e){
+                Validar.numero(vista.getTxtExistencias(), 3); 
+            }
+        });
+         vista.getTxtPrecio().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e){
+                Validar.dinero(vista.getTxtPrecio(), 4); 
+            }
+        });
+    }
+    
+    
+
 
 }
