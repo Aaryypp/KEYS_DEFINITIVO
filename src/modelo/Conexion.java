@@ -45,7 +45,6 @@ public class Conexion {
             System.out.println(sql);
             st = con.createStatement();
             if (st.executeUpdate(sql) == 1) {
-                
                 st.close();
                 return true;
             } else {
@@ -63,5 +62,10 @@ public class Conexion {
             con.close();
         } catch (SQLException ex) {
         }
+    }
+    
+    public Connection connection(){
+        conectar();
+        return con;
     }
 }

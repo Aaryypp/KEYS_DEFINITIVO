@@ -73,14 +73,15 @@ public class mConductor extends Conductor {
     public ResultSet join(int id) {
         try {
             sql = "SELECT p.cedula, p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.fecha_nac, p.telefono, p.direccion, p.correo, \n"
-                    + "p.sexo, p.id_imagen, e.salario , c.licencia, c.tipo_licencia, c.precio_hora \n"
-                    + "FROM conductor c JOIN empleado e ON(c.id_empleado = e.id)JOIN persona p ON(e.cedula_per = p.cedula) WHERE c.id = " + id;
+                    + "p.sexo, e.salario , c.licencia, c.tipo_licencia, c.precio_hora, p.id_imagen, i.nombre, i.valor \n"
+                    + "FROM conductor c JOIN empleado e ON(c.id_empleado = e.id)JOIN persona p ON(e.cedula_per = p.cedula) JOIN imagen i ON (p.id_imagen = i.id) WHERE c.id = " + id;
             rs = con.consulta(sql);
-            rs.next();
+            if (rs != null) {
+                rs.next();
+            }
             return rs;
         } catch (SQLException ex) {
             return null;
         }
     }
-   
 }

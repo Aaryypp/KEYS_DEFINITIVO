@@ -39,7 +39,7 @@ public class mPersona extends Persona {
     public List<Persona> buscar(String txt, String campo) {
         List<Persona> personas = new ArrayList<>();
         try {
-            sql = "cedula, nombre1, nombre2, apellido1, apellido2, fecha_nac, telefono, direccion, correo, sexo, id_imagen FROM Persona WHERE " + campo + " like '%" + txt + "'";
+            sql = "SELECT cedula, nombre1, nombre2, apellido1, apellido2, fecha_nac, telefono, direccion, correo, sexo, id_imagen FROM Persona WHERE " + campo + " like '%" + txt + "'";
             rs = con.consulta(sql);
             if (rs != null) {
                 while (rs.next()) {

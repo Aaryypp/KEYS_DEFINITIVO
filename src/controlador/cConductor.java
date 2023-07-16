@@ -1,7 +1,11 @@
 package controlador;
 
+import controlador.otros.RoundedLabel;
 import controlador.otros.Validar;
+import java.awt.HeadlessException;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.ByteArrayInputStream;
@@ -24,22 +28,16 @@ import modelo.tablas.Empleado;
 import modelo.tablas.Imagen;
 import modelo.tablas.Persona;
 import vista.vConductor;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.image.BufferedImage;
+public final class cConductor {
 
-public class cConductor {
     private final mConductor modelo;
     private final vConductor vista;
     List<Conductor> conductores = new ArrayList<>();
@@ -49,59 +47,51 @@ public class cConductor {
     mEmpleado me = new mEmpleado();
     mCargo mc = new mCargo();
     double salario = 0.0, precio_hora = 0.0;
-    
     DefaultTableModel dtm;
-    String[] columnas = {"ID", "ID empleado", "Licencia" ,"Tipo de licencia", "Precio/Hora"};
+    String[] columnas = {"ID", "ID empleado", "Licencia", "Tipo de licencia", "Precio/Hora"};
     int id;
     ResultSet rs = null;
 
     mImagen mi = new mImagen();
     List<Imagen> imagenes = new ArrayList<>();
     String ruta = "";
+    RoundedLabel rl = new RoundedLabel();
     public cConductor(mConductor modelo, vConductor vista) {
         this.modelo = modelo;
         this.vista = vista;
         iniciar();
         this.vista.setVisible(true);
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
+        validar();
         listar();
         modo("Registrar");
-        vista.getJbOK().setText("Registrar");
-        vista.getLbModo().setText("Registrar conductor");
         seleccionar(vista.getJtConductores());
-        vista.getJb_ModoNuevo().addActionListener(l-> {
-            vista.getJbOK().setText("Registrar");
-            vista.getLbModo().setText("Registrar conductor");
+        vista.getJb_ModoNuevo().addActionListener(l -> {
             modo("Registrar");
-                });
-        vista.getJb_ModoEditar().addActionListener(l-> {
-            vista.getJbOK().setText("Actualizar");
-            vista.getLbModo().setText("Actualizar conductor");
+        });
+        vista.getJb_ModoEditar().addActionListener(l -> {
             modo("Actualizar");
-                });
-        vista.getJb_ModoVista().addActionListener(l-> {
-            vista.getJbOK().setText("Eliminar");
-            vista.getLbModo().setText("Eliminar conductor");
+        });
+        vista.getJb_ModoVista().addActionListener(l -> {
             modo("Eliminar");
-                });
-        vista.getJbOK().addActionListener(l-> OK());
-        
-        vista.getBtnExaminar().addActionListener(l-> examinarImagen());
+        });
+        vista.getJbOK().addActionListener(l -> OK());
+        vista.getBtnExaminar().addActionListener(l -> examinarImagen());
     }
-    
-    public void listar(){
-        dtm = new DefaultTableModel(null,columnas);
+
+    public void listar() {
+        dtm = new DefaultTableModel(null, columnas);
         conductores = modelo.listar("");
         conductores.stream().forEach(c -> dtm.addRow(new Object[]{c.getId_con(), c.getId_empleado(), c.getLicencia(),
-        c.getTipo_licencia(),c.getPrecio_hora()}));
-        
+            c.getTipo_licencia(), c.getPrecio_hora()}));
+
         vista.getJtConductores().setModel(dtm);
         vista.getJtConductores().setRowHeight(30);
     }
-    
-    public void llenar(){
+
+    public void llenar() {
         rs = modelo.join(id);
         if (rs != null) {
             try {
@@ -115,27 +105,31 @@ public class cConductor {
                 vista.getTxtDireccion().setText(rs.getString(8));
                 vista.getTxtCorreo().setText(rs.getString(9));
                 vista.getCbSexo().setSelectedItem(rs.getString(10));
-                setIcon(rs.getInt(11));
-                vista.getTxtSueldo().setText(""+rs.getDouble(12));
-                vista.getTxtLicencia().setText(rs.getString(13));
-                vista.getCbTipoLicencia().setSelectedItem(rs.getString(14));
-                vista.getTxtPrecioHora().setText(""+rs.getDouble(15));
+                vista.getTxtSueldo().setText("" + rs.getDouble(11));
+                vista.getTxtLicencia().setText(rs.getString(12));
+                vista.getCbTipoLicencia().setSelectedItem(rs.getString(13));
+                vista.getTxtPrecioHora().setText("" + rs.getDouble(14));
+                mi.setId(rs.getInt(15));
+                mi.setNombre(rs.getString(16));
+                mi.setValor(rs.getBytes(17));
+                getIcon();
             } catch (SQLException ex) {
             }
         }
     }
-    
-    public void seleccionar(JTable t){
+
+    public void seleccionar(JTable t) {
         t.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent me) {
                 if (me.getClickCount() == 1) {
                     id = Integer.parseInt(t.getValueAt(t.getSelectedRow(), 0).toString());
-                    llenar();
+                    modo("Actualizar");
                 }
             }
         });
     }
+
     public void OK() {
         Date fecha;
         try {
@@ -161,15 +155,18 @@ public class cConductor {
                         } else {
                             if (vista.getJbOK().getText().equals("Registrar")) {
                                 registrar();
+                                listar();
                             }
                             if (vista.getJbOK().getText().equals("Actualizar")) {
                                 modelo.setId_con(id);
                                 actualizar();
+                                listar();
                             }
                             if (vista.getJbOK().getText().equals("Eliminar")) {
                                 modelo.setId_con(id);
                                 if (modelo.eliminar()) {
                                     JOptionPane.showMessageDialog(null, "¡Eliminación exitosa!", null, JOptionPane.INFORMATION_MESSAGE);
+                                    modo("Registrar");
                                     listar();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "¡Este conductor está registrado en un contrato'!", "Eliminación restringida", JOptionPane.ERROR_MESSAGE);
@@ -188,10 +185,10 @@ public class cConductor {
                             JOptionPane.showMessageDialog(null, "¡Correo electrónico inválido!", "Campo inválido", JOptionPane.WARNING_MESSAGE);
                         }
                     }
-                } catch (Exception e) {
+                } catch (HeadlessException | NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "¡Precio por hora inválido!", "Campo inválido", JOptionPane.WARNING_MESSAGE);
                 }
-            } catch (Exception e) {
+            } catch (HeadlessException | NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "¡Salario inválido!", "Campo inválido", JOptionPane.WARNING_MESSAGE);
             }
         }
@@ -199,30 +196,37 @@ public class cConductor {
 
     public void registrar() {
         conductores = modelo.buscar(vista.getTxtLicencia().getText(), "licencia");
-        System.out.println(conductores.toString());
         persona = mp.buscar(vista.getTxtCedula().getText(), "cedula");
-        System.out.println(persona.toString());
-        empleado = me.buscar(vista.getTxtCedula().getText(), "cedula");
-        System.out.println(empleado.toString());
-        
+        empleado = me.buscar(vista.getTxtCedula().getText(), "cedula_per");
         if (conductores.isEmpty()) {
             if (persona.isEmpty() && empleado.isEmpty()) {
+                mi.crear();
+                mp.setId_imagen(mi.ultimoID());
                 setearPersona();
                 mp.crear();
                 setearEmpleado();
                 me.crear();
-            } else if (!persona.isEmpty() && empleado.isEmpty()) {
+                modelo.setId_empleado(me.ultimoID());
+            }
+            if (!persona.isEmpty() && empleado.isEmpty()) {
                 setearEmpleado();
                 me.crear();
+                modelo.setId_empleado(me.ultimoID());
+            }
+            if (!persona.isEmpty() && !empleado.isEmpty()) {
+                modelo.setId_empleado(empleado.get(0).getId());
             }
             setearConductor();
             modelo.crear();
             JOptionPane.showMessageDialog(null, "¡Registro exitoso!", null, JOptionPane.INFORMATION_MESSAGE);
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "¡Este conductor ya existe!", null, JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void actualizar(){
+
+    public void actualizar() {
+        mi.actualizar();
+        mp.setId_imagen(mi.getId());
         setearPersona();
         mp.actualizar();
         setearEmpleado();
@@ -231,8 +235,10 @@ public class cConductor {
         setearConductor();
         modelo.setLicencia(vista.getTxtLicencia().getText());
         modelo.actualizar();
+        JOptionPane.showMessageDialog(null, "¡Actualización exitosa!", null, JOptionPane.INFORMATION_MESSAGE);
     }
-    public void setearPersona(){
+
+    public void setearPersona() {
         mp.setCedula(vista.getTxtCedula().getText());
         mp.setNombre1(vista.getTxtNombre1().getText());
         mp.setNombre2(vista.getTxtNombre2().getText());
@@ -241,23 +247,21 @@ public class cConductor {
         Date fecha = vista.getJdcFechaNac().getDate();
         Long d = fecha.getTime();
         java.sql.Date nac = new java.sql.Date(d);
-        mp.setFecha_nac(nac); 
+        mp.setFecha_nac(nac);
         mp.setTelefono(vista.getTxtTelefono().getText());
         mp.setDireccion(vista.getTxtDireccion().getText());
         mp.setCorreo(vista.getTxtCorreo().getText());
         mp.setSexo(vista.getCbSexo().getSelectedItem().toString());
-        setImagen();
-        System.out.println(mi.toString());
-        mp.setId_imagen(mi.ultimoID());
     }
-    public void setearEmpleado(){
+
+    public void setearEmpleado() {
         me.setCedula_per(vista.getTxtCedula().getText());
         me.setContraseña(null);
         me.setId_cargo(mc.obtenerID("Conductor"));
         me.setSalario(salario);
     }
-    public void setearConductor(){
-        modelo.setId_empleado(me.ultimoID());
+
+    public void setearConductor() {
         modelo.setLicencia(vista.getTxtLicencia().getText());
         modelo.setTipo_licencia(vista.getCbTipoLicencia().getSelectedItem().toString());
         modelo.setPrecio_hora(salario);
@@ -287,91 +291,158 @@ public class cConductor {
             vista.getCbTipoLicencia().setSelectedIndex(0);
             vista.getTxtPrecioHora().setText("");
             vista.getTxtSueldo().setText("");
-            
-            /*
-        ELIMINAR IMAGEN
-        OBTENER ID IMAGEN
-            
-            mp.setId_imagen(id);
-             */
+            vista.getLbFoto().setIcon(null);
+            mi = new mImagen();
+            vista.getLbModo().setText("Registrar conductor");
+            vista.getJbOK().setText("Registrar");
         } else {
             llenar();
             vista.getTxtCedula().setEditable(false);
             vista.getTxtLicencia().setEditable(false);
-            
             if (modo.equals("Eliminar")) {
                 editable = false;
+                vista.getLbModo().setText("Eliminar conductor");
+                vista.getJbOK().setText("Eliminar");
+            } else {
+                vista.getLbModo().setText("Actualizar conductor");
+                vista.getJbOK().setText("Actualizar");
             }
-            
         }
         vista.getTxtNombre1().setEditable(editable);
-            vista.getTxtNombre2().setEditable(editable);
-            vista.getTxtApellido1().setEditable(editable);
-            vista.getTxtApellido2().setEditable(editable);
-            vista.getJdcFechaNac().setEnabled(editable);
-            vista.getTxtTelefono().setEditable(editable);
-            vista.getTxtDireccion().setEditable(editable);
-            vista.getTxtCorreo().setEditable(editable);
-            vista.getCbSexo().setEnabled(editable);
-            vista.getCbTipoLicencia().setEnabled(editable);
-            vista.getTxtPrecioHora().setEditable(editable);
-            vista.getTxtSueldo().setEditable(editable);
-            vista.getBtnExaminar().setEnabled(editable);
+        vista.getTxtNombre2().setEditable(editable);
+        vista.getTxtApellido1().setEditable(editable);
+        vista.getTxtApellido2().setEditable(editable);
+        vista.getJdcFechaNac().setEnabled(editable);
+        vista.getTxtTelefono().setEditable(editable);
+        vista.getTxtDireccion().setEditable(editable);
+        vista.getTxtCorreo().setEditable(editable);
+        vista.getCbSexo().setEnabled(editable);
+        vista.getCbTipoLicencia().setEnabled(editable);
+        vista.getTxtPrecioHora().setEditable(editable);
+        vista.getTxtSueldo().setEditable(editable);
+        vista.getBtnExaminar().setEnabled(editable);
     }
-    
-    public void setIcon(int id) {
+
+    //setear iconos en la tabla por completar...
+    public void setIconos(int id) {
         try {
             imagenes = mi.listar(id);
             byte[] valor = imagenes.get(0).getValor();
-            BufferedImage bufferedImage = null;
             InputStream inputStream = new ByteArrayInputStream(valor);
-            bufferedImage = ImageIO.read(inputStream);
+            BufferedImage bufferedImage = ImageIO.read(inputStream);
             ImageIcon icon = new ImageIcon(bufferedImage.getScaledInstance(60, 60, id));
             vista.getLbFoto().setIcon(icon);
-        } catch (Exception e) {
+        } catch (IOException e) {
             vista.getLbFoto().setIcon(null);
         }
     }
-    
-    public void examinarImagen(){
+
+    public void examinarImagen() {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter( "Seleccione una imagen JPG, PNG & GIF","jpg","png","gif");
+        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Seleccione una imagen JPG, PNG & GIF", "jpg", "png", "gif");
         fileChooser.setFileFilter(extensionFilter);
-        if (fileChooser.showOpenDialog(vista)== JFileChooser.APPROVE_OPTION) {
+        if (fileChooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
             ruta = fileChooser.getSelectedFile().getAbsolutePath();
             Image image = new ImageIcon(ruta).getImage();
             ImageIcon icon = new ImageIcon(image.getScaledInstance(vista.getLbFoto().getWidth(), vista.getLbFoto().getHeight(), 0));
             vista.getLbFoto().setIcon(icon);
-            setImagen();
+            mi.setNombre(fileChooser.getSelectedFile().getName());
+            mi.setValor(getByte(ruta));
+            getIcon();
         }
     }
-    
-    public byte[] getByte(String ruta){
+
+    public byte[] getByte(String ruta) {
         File imagen = new File(ruta);
         try {
-            byte[] icono = new byte[(int)imagen.length()];
+            byte[] icono = new byte[(int) imagen.length()];
             InputStream input = new FileInputStream(imagen);
             input.read(icono);
             return icono;
-        } catch (Exception e) {
+        } catch (IOException e) {
             return null;
         }
     }
 
-    public void setImagen() {
+    public void getIcon() {
+    if (mi.getValor() == null) {
+        vista.getLbFoto().setIcon(null);
+    } else {
         try {
-            File file = new File(ruta);
-            byte[] imagen = new byte[(int) file.length()];
-            try (FileInputStream fis = new FileInputStream(file)) {
-                fis.read(imagen);
-            } catch (IOException ex) {
-                Logger.getLogger(cConductor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            mi.setNombre(file.getName());
-            mi.setValor(imagen);
-            mi.crear();
-        } catch (Exception ex) {
-            Logger.getLogger(cConductor.class.getName()).log(Level.SEVERE, null, ex);
+            byte[] valor = mi.getValor();
+            InputStream inputStream = new ByteArrayInputStream(valor);
+            BufferedImage bufferedImage = ImageIO.read(inputStream);
+            // Llama al método setRoundedImage
+            rl.setRoundedImage2(bufferedImage, vista.getLbFoto());
+        } catch (IOException ex) {
+            vista.getLbFoto().setIcon(null);
         }
+    }
+}
+
+    public void validar() {
+        vista.getTxtCedula().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.numero(vista.getTxtCedula(), 10);
+            }
+        });
+        vista.getTxtNombre1().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.letras(vista.getTxtNombre1(), 50);
+            }
+        });
+        vista.getTxtNombre2().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.letras(vista.getTxtNombre2(), 50);
+            }
+        });
+        vista.getTxtApellido1().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.letras(vista.getTxtApellido1(), 50);
+            }
+        });
+        vista.getTxtApellido2().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.letras(vista.getTxtApellido2(), 50);
+            }
+        });
+        vista.getTxtTelefono().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.numero(vista.getTxtTelefono(), 10);
+            }
+        });
+        vista.getTxtDireccion().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.nombre_compuesto(vista.getTxtDireccion(), 250);
+            }
+        });
+
+        vista.getTxtSueldo().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.dinero(vista.getTxtSueldo(), 7);
+            }
+        });
+
+        vista.getTxtLicencia().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.numero(vista.getTxtLicencia(), 10);
+            }
+        });
+        
+        vista.getTxtPrecioHora().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Validar.dinero(vista.getTxtPrecioHora(), 7);
+            }
+        });
     }
 }

@@ -40,7 +40,7 @@ public class Background extends JComponent {
     private Component blur;
 
     public Background() {
-        image = new ImageIcon(getClass().getResource("/vista/img/fondo.jpg"));
+        image = new ImageIcon(getClass().getResource("/vista/img/fondo_login.JPEG"));
     }
 
     private void createImage() {

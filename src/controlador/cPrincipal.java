@@ -8,7 +8,6 @@ import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
-import controlador.otros.RoundedLabel;
 import java.io.IOException;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -39,13 +38,6 @@ public final class cPrincipal {
         vista.getMiCliente().addActionListener(l->menuPersona());
         vista.getMiConductor().addActionListener(l-> menuConductor());
         vista.getMiAutomovil().addActionListener(l-> MenuAutos());
-        String imagePath = "src/vista/img/logo.png";
-        try {
-            RoundedLabel rl = new RoundedLabel();
-            rl.setRoundedImage(imagePath,vista.getLbLogo());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
     
     

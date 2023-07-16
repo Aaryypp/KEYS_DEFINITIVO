@@ -1,17 +1,19 @@
 package modelo;
 
+import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.tablas.Imagen;
+import oracle.jdbc.internal.OraclePreparedStatement;
 
 public class mImagen extends Imagen {
-    public static Conexion con = new Conexion();
+
+    private Conexion con = new Conexion();
     public static ResultSet rs = null;
     public static String sql;
-    
-    
+
     public List<Imagen> listar(int id) {
         List<Imagen> imagenes = new ArrayList<>();
         try {
@@ -33,17 +35,37 @@ public class mImagen extends Imagen {
             return null;
         }
     }
-    
-     public boolean crear() {
-         sql = "INSERT INTO imagen(nombre, valor) VALUES ('"+ getNombre() + "'," + getValor()+ ")";
-        return con.accion(sql);
+
+    public boolean crear() {
+        try {
+            Connection c =(Connection) con.connection();
+            PreparedStatement ps = c.prepareStatement("INSERT INTO Imagen(nombre,valor) VALUES(?,?)");
+            ps.setString(1, getNombre());
+            ps.setBytes(2, getValor());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
-     
-   public boolean actualizar() {
-        sql = "UPDATE imagen SET nombre='"+getNombre()+"', valor="+getValor()+" WHERE id="+getId();
-        return con.accion(sql);
-    } 
-   
+
+    public boolean actualizar() {
+        try {
+            Connection c =(Connection) con.connection();
+            PreparedStatement ps = c.prepareStatement("UPDATE Imagen SET nombre=?,valor=? WHERE id=?");
+            ps.setString(1, getNombre());
+            ps.setBytes(2, getValor());
+            ps.setInt(3, getId());
+            //System.out.println(((OraclePreparedStatement)ps).getOriginalSql()); //imprime la consulta original
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+
+
     public int ultimoID() {
         int id = 0;
         try {
@@ -55,6 +77,4 @@ public class mImagen extends Imagen {
         }
         return id;
     }
-    
-    
 }

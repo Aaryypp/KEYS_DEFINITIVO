@@ -35,7 +35,6 @@ public class mCliente extends Cliente {
             }
 
             rs = con.consulta(sql);
-
             if (rs != null) {
 
                 while (rs.next()) {
