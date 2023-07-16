@@ -2,6 +2,7 @@ package controlador;
 
 import static controlador.cCliente.rs;
 import controlador.otros.Validar;
+import java.awt.HeadlessException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -86,20 +87,27 @@ public class cExtra {
     public void accionboton() {
         if (vista.getJbOK().getText().equals("MODIFICAR")) {
             if (lleno()) {
-                setearDatosmod();
+                if (valisala()) {
+                   setearDatosmod();
                 modelo.actualizar();
                 visualizar(0);
-                JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                JOptionPane.showMessageDialog(null, "Modificado correctamente");   
+                }
+              
             }
         }
         ////////////////////////////////////////////////////
         if (vista.getJbOK().getText().equals("REGISTRAR")) {
             if (lleno()) {
+                if (valisala()) {
                 setearDatos();
                 modelo.crear();
                 visualizar(0);
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
-                vaciarperfil();
+                vaciarperfil();   
+                    
+                }
+               
             }
         }
         /////////////////////////////////////
@@ -246,6 +254,35 @@ public class cExtra {
             }
         });
     }
+     public boolean valisala(){
+         boolean f;
+         try {  
+         Double salario = Double.valueOf(vista.getTxtPrecio().getText()); 
+         f=true;
+         } catch (HeadlessException | NumberFormatException e){
+           JOptionPane.showMessageDialog(null, "Precio invalido");
+         f=false;  
+         }
+        return f;      
+     }
+//         
+//             Double salario = Double.parseDouble(vista.getTxtPrecio().getText());
+//         }
+//         } catch (HeadlessException | NumberFormatException e) {
+//          
+//         }
+//         
+//         
+//        return false;
+//         
+//     } 
+//              try {
+//           try {
+//                
+//             
+//              } catch (HeadlessException | NumberFormatException e) {
+//                JOptionPane.showMessageDialog(null, "¡Salario inválido!", "Campo inválido", JOptionPane.WARNING_MESSAGE);
+//            }
     
     
 
