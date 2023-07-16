@@ -1,4 +1,3 @@
-
 package controlador;
 
 import static controlador.cCliente.rs;
@@ -20,11 +19,8 @@ import modelo.tablas.Categoria;
 import modelo.tablas.Extra;
 import vista.vExtras;
 
-/**
- *
- * @author ariel
- */
 public class cExtra {
+
     private final mExtra modelo;
     private final vExtras vista;
     public static ResultSet rs2 = null;
@@ -32,8 +28,9 @@ public class cExtra {
     List<Extra> extras = new ArrayList<>();
     List<Categoria> categorias = new ArrayList<>();
     DefaultTableModel dtm;
-    String[] columnas = {"Codigo","Nombre", "Precio","Existencias","Categoria"};
+    String[] columnas = {"Codigo", "Nombre", "Precio", "Existencias", "Categoria"};
     int id;
+
     public cExtra(mExtra modelo, vExtras vista) {
         this.modelo = modelo;
         this.vista = vista;
@@ -43,137 +40,127 @@ public class cExtra {
         seleccionar(vista.getJtExtras());
         llenarcate(vista.getCbCategoria());
         accionboton();
+        crearmodo();
     }
+
     public void iniciarCtrlBtn() {
         vista.getJb_ModoEditar().addActionListener(l -> editarmodo());
         vista.getJb_ModoNuevo().addActionListener(l -> crearmodo());
         vista.getJb_ModoVista().addActionListener(l -> eliminarver());
-        vista.getJbOK().addActionListener(l->accionboton());
-        
+        vista.getJbOK().addActionListener(l -> accionboton());
 
     }
+
     private void visualizar(int id) {
         dtm = new DefaultTableModel(null, columnas);
         extras = modelo.listar(id);
-        extras.stream().forEach(p -> dtm.addRow(new Object[]{p.getCodigo(), p.getNombre(), p.getPrecio(),p.getExistencias(),p.getId_categoria()}));
+        extras.stream().forEach(p -> dtm.addRow(new Object[]{p.getCodigo(), p.getNombre(), p.getPrecio(), p.getExistencias(), p.getId_categoria()}));
         vista.getJtExtras().setModel(dtm);
         vista.getJtExtras().setRowHeight(30);
     }
-      public void editarmodo() {       
-//        desckboton();
-//        vista.getTxtCedula().setEditable(false);
+
+    public void editarmodo() {
+        desckboton(true);
         vista.getJbOK().setText("MODIFICAR");
         vista.getLbModo().setText("Actualizar extras");
     }
-     public void crearmodo() {
-//       vaciarperfil();
-//       desckboton();
-//        vista.getTxtCedula().setEditable(true);
-        vista.getJbOK().setText("REGISTRAR"); 
+
+    public void crearmodo() {
+        vaciarperfil();
+        desckboton(true);
+        vista.getJbOK().setText("REGISTRAR");
         vista.getLbModo().setText("Registrar extras");
-        
+
     }
-     public void eliminarver() {
-//        blockboton();
+
+    public void eliminarver() {
+        desckboton(false);
         vista.getJbOK().setText("ELIMINAR");
-         vista.getLbModo().setText("Eliminar extras");
+        vista.getLbModo().setText("Eliminar extras");
     }
-           public void accionboton() {
 
-          if (vista.getJbOK().getText().equals("MODIFICAR")) {
-              
-//              if (lleno()) {
-//                  if (fechavalida() == null||!emailcorrect()||!fechcorrect()) {
-//                  } else {
-//                      setearDatosmod();
-//                      modelop.actualizar();
-//                      modelo.actualizar();
-//                      visualizar(0);
-//                      JOptionPane.showMessageDialog(null, "Modificado correctamente");
-//                  }
-//              }
-          }
-          if (vista.getJbOK().getText().equals("REGISTRAR")) {
-              System.out.println("hace algo");
-//              if (lleno()) {
-//                  if (fechavalida()==null||existep()==1||!cedcorrect()||!emailcorrect()||!fechcorrect()) {
-//                      
-//                  } else {
-                        setearDatos();
-                        modelo.crear();
-//                      modelo.crear();
-//                      visualizar(0);
-//                      JOptionPane.showMessageDialog(null, "Registrado correctamente");
-//                  }
-//
-//              }
-          }
+    public void accionboton() {
+        if (vista.getJbOK().getText().equals("MODIFICAR")) {
+            if (lleno()) {
+                setearDatosmod();
+                modelo.actualizar();
+                visualizar(0);
+                JOptionPane.showMessageDialog(null, "Modificado correctamente");
+            }
+        }
+        ////////////////////////////////////////////////////
+        if (vista.getJbOK().getText().equals("REGISTRAR")) {
+            if (lleno()) {
+                setearDatos();
+                modelo.crear();
+                visualizar(0);
+                JOptionPane.showMessageDialog(null, "Registrado correctamente");
+                vaciarperfil();
+            }
+        }
+        /////////////////////////////////////
         if (vista.getJbOK().getText().equals("ELIMINAR")) {
-//            if (llenoeli()){ 
-//                modelo.setId(Integer.parseInt(vista.getTxtIdCliente().getText()));
-//                modelo.eliminar();
-//                modelop.setCedula(vista.getTxtCedula().getText());
-//                modelop.eliminar(id);
-//                visualizar(0);
-//                vaciarperfil();
-//                JOptionPane.showMessageDialog(null, "Eliminado correctamente");
-//                 
-//            }
-
+            if (lleno()) {
+                setearDatosmod();
+                modelo.eliminar(Integer.parseInt(vista.getTxtIdExtras().getText()));
+                visualizar(0);
+                JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+                vaciarperfil();
+            }
 
         }
 
     }
-        public void setearDatos() {
+
+    public void setearDatos() {
         try {
             modelo.setNombre(vista.getTxtNombre().getText());
-            modelo.setPrecio(Double.valueOf(vista.getTxtPrecio().getText()));
+            modelo.setPrecio(Double.parseDouble(vista.getTxtPrecio().getText()));
             modelo.setExistencias(Integer.parseInt(vista.getTxtExistencias().getText()));
-            rs2=modeloc.obtener_idcate(vista.getCbCategoria().getSelectedItem().toString());
+            rs2 = modeloc.obtener_idcate(vista.getCbCategoria().getSelectedItem().toString());
             rs2.next();
-            int nom=rs2.getInt(1);
+            int nom = rs2.getInt(1);
             modelo.setId_categoria(nom);
         } catch (SQLException ex) {
             Logger.getLogger(cExtra.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-        public void seleccionar(JTable t) {
+
+    public void setearDatosmod() {
+        try {
+            modelo.setCodigo(Integer.parseInt(vista.getTxtIdExtras().getText()));
+            modelo.setNombre(vista.getTxtNombre().getText());
+            modelo.setPrecio(Double.parseDouble(vista.getTxtPrecio().getText()));
+            modelo.setExistencias(Integer.parseInt(vista.getTxtExistencias().getText()));
+            rs2 = modeloc.obtener_idcate(vista.getCbCategoria().getSelectedItem().toString());
+            rs2.next();
+            int nom = rs2.getInt(1);
+            modelo.setId_categoria(nom);
+        } catch (SQLException ex) {
+            Logger.getLogger(cExtra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void seleccionar(JTable t) {
         t.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent me) {
                 if (me.getClickCount() == 1) {
-                    String p= t.getValueAt(t.getSelectedRow(), 0).toString();
-                    id=Integer.parseInt(p);
-                    String p2= t.getValueAt(t.getSelectedRow(), 0).toString();
-                    id=Integer.parseInt(p);
-                    
-////                    blockboton();
+                    String p = t.getValueAt(t.getSelectedRow(), 0).toString();
+                    id = Integer.parseInt(p);
+                    String p2 = t.getValueAt(t.getSelectedRow(), 0).toString();
+                    id = Integer.parseInt(p);
                     llenarPerfil();
-//                    blockboton();
-                    
+                    desckboton(false);
+
                 }
             }
         });
     }
-        public void llenarPerfil() {
+
+    public void llenarPerfil() {
         rs = modelo.obtener_extra(id);
         if (rs != null) {
             try {
@@ -181,7 +168,7 @@ public class cExtra {
                     vista.getTxtIdExtras().setText(String.valueOf(rs.getInt(1)));//codigo
                     vista.getTxtNombre().setText(rs.getString(2));//nombre
                     vista.getTxtPrecio().setText(rs.getString(3));//precio
-                    categorias=modeloc.listar(rs.getInt(4));
+                    categorias = modeloc.listar(rs.getInt(4));
                     vista.getCbCategoria().setSelectedItem(categorias.get(0).getNombre());
                     vista.getTxtExistencias().setText(rs.getString(5));//existencias
                 }
@@ -191,31 +178,48 @@ public class cExtra {
         }
 
     }
+
     public void llenarcate(JComboBox cb) {
         try {
             cb.removeAllItems();
             cb.addItem("Seleccione...");
-            rs=modeloc.obtener_cate();
+            rs = modeloc.obtener_cate();
             while (rs.next()) {
                 cb.addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
         }
-    } 
-    
-    
-//       public void SELECT(JComboBox cb) {
-//        try {
-//           
-//            }
-//        } catch (SQLException ex) {
-//        }
-//    }  
-//    
-//     
-//    
-    
-    
-    
-    
+    }
+
+    public void vaciarperfil() {
+
+        vista.getTxtIdExtras().setText("Autoasignado");
+        vista.getTxtNombre().setText("");
+        vista.getTxtPrecio().setText("");
+        vista.getTxtExistencias().setText("");
+        vista.getCbCategoria().setSelectedIndex(0);
+
+    }
+
+    public void desckboton(boolean modo) {
+        vista.getTxtNombre().setEditable(modo);
+        vista.getTxtPrecio().setEditable(modo);
+        vista.getTxtExistencias().setEditable(modo);
+        vista.getCbCategoria().setEnabled(modo);
+    }
+
+    public boolean lleno() {
+        boolean llen;
+        if (vista.getTxtNombre().getText().isEmpty() || vista.getTxtPrecio().getText().isEmpty() || vista.getTxtExistencias().getText().isEmpty()
+                || vista.getCbCategoria().getSelectedIndex() == 0) {
+            llen = false;
+            JOptionPane.showMessageDialog(null, "COMPLETE TODOS LOS CAMPOS");
+        } else {
+
+            llen = true;
+
+        }
+        return llen;
+    }
+
 }

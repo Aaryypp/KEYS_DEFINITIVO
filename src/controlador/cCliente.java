@@ -194,7 +194,7 @@ public class cCliente {
            vista.getCbSexo().setEnabled(true);//SEXO
 
     }
-          public void vaciarperfil() {
+        public void vaciarperfil() {
 
         vista.getTxtIdCliente().setText("Autoasignado");//cedula     
         vista.getTxtCedula().setText("");//cedula

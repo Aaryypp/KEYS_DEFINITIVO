@@ -51,10 +51,10 @@ public class mExtra extends Extra {
 
     public boolean actualizar() {
         sql = "UPDATE extra SET nombre='"
-                + getNombre() + "', precio='"
-                + getPrecio() + "', existencias="
-                + getExistencias() + "', id_categoria="
-                + getId_categoria() + " WHERE codigo='" + getCodigo() + "'";
+                + getNombre() + "', precio="
+                + getPrecio() + ", existencias="
+                + getExistencias() + ", id_categoria="
+                + getId_categoria() + " WHERE codigo=" + getCodigo() + "";
         return con.accion(sql);
     }
 
