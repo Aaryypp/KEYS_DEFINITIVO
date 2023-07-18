@@ -197,18 +197,18 @@ public class cEmpleado {
     public void registrar() {
         empleados = modelo.buscar(vista.getTxtCedula().getText(), "cedula_per");
         persona = mp.buscar(vista.getTxtCedula().getText(), "cedula");
-        if (empleados.isEmpty() && persona.isEmpty()) {
-            mi.crear();
-            setearPersona();
-            mp.setId_imagen(mi.ultimoID());
-            mp.crear();
+        if (empleados.isEmpty() || persona.isEmpty()) {
+            if (empleados.isEmpty() && persona.isEmpty()) {
+                mi.crear();
+                setearPersona();
+                mp.setId_imagen(mi.ultimoID());
+                mp.crear();
+            }
+            setearEmpleado();
+            modelo.crear();
             JOptionPane.showMessageDialog(null, "¡Registro exitoso!", null, JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "¡Este empleado ya existe!", null, JOptionPane.ERROR_MESSAGE);
-        }
-        if (!persona.isEmpty() && empleados.isEmpty()) {
-            setearEmpleado();
-            modelo.crear();
         }
     }
 
@@ -246,7 +246,6 @@ public class cEmpleado {
     }
 
     public void modo(String modo) {
-        
         boolean editable = true;
         if (modo.equals("Registrar")) {
             mc.llenarComboBox(vista.getCbCargo());
