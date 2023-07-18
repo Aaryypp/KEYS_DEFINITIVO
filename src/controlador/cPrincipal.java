@@ -14,10 +14,12 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import modelo.mAuto;
 import modelo.mCliente;
 import modelo.mConductor;
+import modelo.mEmpleado;
 import modelo.mExtra;
 import vista.vAuto;
 import vista.vCliente;
 import vista.vConductor;
+import vista.vEmpleado;
 import vista.vExtras;
 import vista.vPrincipal;
 
@@ -25,6 +27,7 @@ public final class cPrincipal {
     vPrincipal vista;
     vCliente vcliente;
     vConductor vconductor;
+    vEmpleado vempleado;
     vAuto vauto;
     vExtras vextras;
     public cPrincipal(vPrincipal vista) throws IOException {
@@ -42,6 +45,7 @@ public final class cPrincipal {
         vista.getMiConductor().addActionListener(l-> menuConductor());
         vista.getMiAutomovil().addActionListener(l-> MenuAutos()); 
         vista.getMiExtras().addActionListener(l->menuExtras());
+        vista.getMiEmpleado().addActionListener(l-> menuEmpelado());
     }
     
     
@@ -156,6 +160,19 @@ public final class cPrincipal {
         }
         
         cConductor c_conductor = new cConductor(m_conductor, vconductor);
+    }
+    
+    public void menuEmpelado() {
+
+        mEmpleado m_empleado = new mEmpleado();
+        try {
+            vista.getJdPrincipal().add(vempleado);
+        } catch (Exception e) {
+            vempleado = new vEmpleado();
+            vista.getJdPrincipal().add(vempleado);
+        }
+        
+        cEmpleado c_empleado = new cEmpleado(m_empleado, vempleado);
     }
     
     public void MenuAutos(){
