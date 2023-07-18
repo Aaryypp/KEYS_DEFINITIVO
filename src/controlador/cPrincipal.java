@@ -8,6 +8,7 @@ import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
+import java.awt.Dimension;
 import java.io.IOException;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -27,11 +28,23 @@ public final class cPrincipal {
     vConductor vconductor;
     vAuto vauto;
     vExtras vextras;
+//    private static Application app;
+//    private final MainForm mainForm;
+//    private final LoginForm loginForm;
+    
+//    
+//    
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
     }
 
     public void iniciar() {
+//        setSize(new Dimension(1200, 768));
+//        setLocationRelativeTo(null);
+//        mainForm = new MainForm();
+//        loginForm = new LoginForm();
+//        setContentPane(loginForm);
+//        Notifications.getInstance().setJFrame(this);
         vista.setVisible(true);
         vista.setExtendedState(vPrincipal.MAXIMIZED_BOTH);
         setBordeButton();
