@@ -1,11 +1,19 @@
 package controlador;
 
+import controlador.otros.RoundedLabel;
 import controlador.otros.Validar;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -14,10 +22,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import modelo.mCliente;
+import modelo.mImagen;
 import modelo.mPersona;
 import modelo.tablas.Cliente;
 import vista.vCliente;
@@ -32,6 +45,10 @@ public class cCliente {
     String[] columnas = {"Codigo", "Cedula", "Contraseña"};
     String id;
     String mod = null;
+    String ruta = "";
+    mImagen mi = new mImagen();
+    RoundedLabel rl = new RoundedLabel();
+    
 
     public cCliente(mCliente modelo, vCliente vista) {
         this.modelo = modelo;
@@ -41,12 +58,14 @@ public class cCliente {
         seleccionar(vista.getJtClientes());
         iniciarCtrlBtn();
         controlKey();
+        crearmodo();
     }
       public void iniciarCtrlBtn() {
         vista.getJb_ModoEditar().addActionListener(l -> editarmodo());
         vista.getJb_ModoNuevo().addActionListener(l -> crearmodo());
         vista.getJb_ModoVista().addActionListener(l -> eliminarver());
         vista.getJbOK().addActionListener(l -> accionboton());
+        vista.getBtnExaminar().addActionListener(l->examinarImagen());
 
     }
     private void visualizar(int id) {
@@ -60,7 +79,7 @@ public class cCliente {
     public void editarmodo() {       
         desckboton();
         vista.getTxtCedula().setEditable(false);
-        vista.getJbOK().setText("MODIFICAR");
+        vista.getJbOK().setText("ACTUALIZAR");
     }
      public void crearmodo() {
        vaciarperfil();
@@ -76,7 +95,7 @@ public class cCliente {
      
       public void accionboton() {
 
-          if (vista.getJbOK().getText().equals("MODIFICAR")) {
+          if (vista.getJbOK().getText().equals("ACTUALIZAR")) {
               if (lleno()) {
                   if (fechavalida() == null) {
                   } else {
@@ -84,7 +103,7 @@ public class cCliente {
                       modelop.actualizar();
                       modelo.actualizar();
                       visualizar(0);
-                      JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                      JOptionPane.showMessageDialog(null, "Actualizado correctamente");
                   }
               }
           }
@@ -93,7 +112,9 @@ public class cCliente {
                   if (fechavalida()==null||existep()==1||!cedcorrect()||!emailcorrect()) {
                       
                   } else {
+                      mi.crear();
                       setearDatoscre();
+//                     
                       modelop.crear();
                       modelo.crear();
                       visualizar(0);
@@ -113,12 +134,8 @@ public class cCliente {
                 JOptionPane.showMessageDialog(null, "Eliminado correctamente");
                  
             }
-
-
         }
-
     }
-    
     public void seleccionar(JTable t) {
         t.addMouseListener(new MouseAdapter() {
             @Override
@@ -127,6 +144,7 @@ public class cCliente {
                     id = t.getValueAt(t.getSelectedRow(), 1).toString();
 //                    blockboton();
                     llenarPerfil();
+                    editarmodo();
                     blockboton();
                     
                 }
@@ -156,6 +174,13 @@ public class cCliente {
                     } else {
                         vista.getCbSexo().setSelectedIndex(2);
                     }
+                    mi.setId(rs.getInt(14));
+                    mi.setNombre(rs.getString(16));
+                    mi.setValor(rs.getBytes(17));
+                    getIcon();
+                    
+                    
+                    
                     int idfoto = rs.getInt(14);
 
                 }
@@ -208,6 +233,8 @@ public class cCliente {
         vista.getTxtDireccion().setText("");//DIRECCION
         vista.getTxtCorreo().setText("");//CORREO
         vista.getCbSexo().setSelectedIndex(0);//SEXO
+        vista.getLbFoto().setIcon(null);
+        mi = new mImagen();
 
     }
           
@@ -228,6 +255,8 @@ public class cCliente {
         modelop.setDireccion(vista.getTxtDireccion().getText());
         modelop.setCorreo(vista.getTxtCorreo().getText());
         modelop.setSexo(vista.getCbSexo().getSelectedItem().toString());
+        mi.actualizar();
+        modelop.setId_imagen(mi.getId());
     }
        public void setearDatoscre() {    
         modelo.setCedula_per(vista.getTxtCedula().getText());
@@ -245,7 +274,49 @@ public class cCliente {
         modelop.setDireccion(vista.getTxtDireccion().getText());
         modelop.setCorreo(vista.getTxtCorreo().getText());
         modelop.setSexo(vista.getCbSexo().getSelectedItem().toString());
+        modelop.setId_imagen(mi.ultimoID());
     }
+    public void examinarImagen() {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Seleccione una imagen JPG, PNG & GIF", "jpg", "png", "gif");
+        fileChooser.setFileFilter(extensionFilter);
+        if (fileChooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
+            ruta = fileChooser.getSelectedFile().getAbsolutePath();
+            Image image = new ImageIcon(ruta).getImage();
+            ImageIcon icon = new ImageIcon(image.getScaledInstance(vista.getLbFoto().getWidth(), vista.getLbFoto().getHeight(), 0));
+            vista.getLbFoto().setIcon(icon);
+            mi.setNombre(fileChooser.getSelectedFile().getName());
+            mi.setValor(getByte(ruta));
+            getIcon();
+        }
+    }
+    
+   public byte[] getByte(String ruta) {
+        File imagen = new File(ruta);
+        try {
+            byte[] icono = new byte[(int) imagen.length()];
+            InputStream input = new FileInputStream(imagen);
+            input.read(icono);
+            return icono;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+     public void getIcon() {
+    if (mi.getValor() == null) {
+        vista.getLbFoto().setIcon(null);
+    } else {
+        try {
+            byte[] valor = mi.getValor();
+            InputStream inputStream = new ByteArrayInputStream(valor);
+            BufferedImage bufferedImage = ImageIO.read(inputStream);
+            // Llama al método setRoundedImage
+            rl.setRoundedImage2(bufferedImage, vista.getLbFoto());
+        } catch (IOException ex) {
+            vista.getLbFoto().setIcon(null);
+        }
+    }
+}
       
     public boolean lleno() {
         boolean llen = false;
@@ -360,10 +431,5 @@ public class cCliente {
         });
 
     }
-
-    
-    
-    
-    
     
 }

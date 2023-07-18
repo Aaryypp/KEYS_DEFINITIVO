@@ -85,7 +85,7 @@ public class mCliente extends Cliente {
 
     public ResultSet obtener_cliente(String cedula) {
 
-        sql = "SELECT * FROM Cliente JOIN Persona ON Cliente.cedula_per = Persona.cedula WHERE Persona.cedula ='" + cedula + "'";
+        sql = "SELECT * FROM Cliente JOIN Persona ON Cliente.cedula_per = Persona.cedula JOIN IMAGEN ON persona.id_imagen=imagen.id WHERE Persona.cedula ='" + cedula + "'";
         rs = con.consulta(sql);
         return rs;
 
