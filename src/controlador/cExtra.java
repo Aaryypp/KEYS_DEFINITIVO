@@ -43,7 +43,6 @@ public class cExtra {
         iniciarCtrlBtn();
         seleccionar(vista.getJtExtras());
         llenarcate(vista.getCbCategoria());
-        accionboton();
         crearmodo();
         controlKey();
     }
