@@ -64,7 +64,21 @@ public class cEmpleado {
     DefaultTableModel dtm;
     
     public void iniciar(){
+        validar();
         listar();
+        modo("Registrar");
+        seleccionar(vista.getJtEmpleados());
+        vista.getJb_ModoNuevo().addActionListener(l -> {
+            modo("Registrar");
+        });
+        vista.getJb_ModoEditar().addActionListener(l -> {
+            modo("Actualizar");
+        });
+        vista.getJb_ModoVista().addActionListener(l -> {
+            modo("Eliminar");
+        });
+        vista.getJbOK().addActionListener(l -> OK());
+        vista.getBtnExaminar().addActionListener(l -> examinarImagen());
     }
     
     public void listar(){
@@ -232,8 +246,10 @@ public class cEmpleado {
     }
 
     public void modo(String modo) {
+        
         boolean editable = true;
         if (modo.equals("Registrar")) {
+            mc.llenarComboBox(vista.getCbCargo());
             vista.getTxtCedula().setEditable(true);
             vista.getBtnExaminar().setEnabled(true);
             vista.getCbSexo().setEnabled(true);
