@@ -42,7 +42,7 @@ public class cCliente {
     public static ResultSet rs = null;
     List<Cliente> clientes = new ArrayList<>();
     DefaultTableModel dtm;
-    String[] columnas = {"Codigo", "Cedula", "Contraseña"};
+    String[] columnas = {"Codigo", "Cedula","Nombre","Apellido","Correo","Telefono"};
     String id;
     String mod = null;
     String ruta = "";
@@ -69,12 +69,20 @@ public class cCliente {
 
     }
     private void visualizar(int id) {
-        dtm = new DefaultTableModel(null, columnas);
-        clientes = modelo.listar(id);
-        clientes.stream().forEach(p -> dtm.addRow(new Object[]{p.getId(), p.getCedula_per(), p.getContraseña()}));
-        
-        vista.getJtClientes().setModel(dtm);
-        vista.getJtClientes().setRowHeight(30);
+        try {
+            dtm = new DefaultTableModel(null, columnas);
+            rs = modelo.jointabla();
+            while(rs.next()){
+             dtm.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(5),rs.getString(7),rs.getString(12),rs.getString(10)});   
+            }
+            
+//        clientes.stream().forEach(p -> dtm.addRow(new Object[]{p.getId(), p.getCedula_per(), p.getContraseña()}));
+
+vista.getJtClientes().setModel(dtm);
+vista.getJtClientes().setRowHeight(30);
+        } catch (SQLException ex) {
+            Logger.getLogger(cCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void editarmodo() {       
         desckboton();
@@ -97,7 +105,7 @@ public class cCliente {
 
           if (vista.getJbOK().getText().equals("ACTUALIZAR")) {
               if (lleno()) {
-                  if (fechavalida() == null) {
+                  if (fechavalida() == null||!emailcorrect()||!EDADCORRECTA()) {
                   } else {
                       setearDatosmod();
                       modelop.actualizar();
@@ -109,12 +117,11 @@ public class cCliente {
           }
           if (vista.getJbOK().getText().equals("REGISTRAR")) {
               if (lleno()) {
-                  if (fechavalida()==null||existep()==1||!cedcorrect()||!emailcorrect()) {
+                  if (fechavalida()==null||existep()==1||!cedcorrect()||!emailcorrect()||!EDADCORRECTA()) {
                       
                   } else {
                       mi.crear();
                       setearDatoscre();
-//                     
                       modelop.crear();
                       modelo.crear();
                       visualizar(0);
@@ -381,6 +388,17 @@ public class cCliente {
         if (valid) {
         } else {
             JOptionPane.showMessageDialog(null, "Correo invalido");
+        }
+        return valid;
+
+    }
+        public boolean EDADCORRECTA() {
+        Date fecha =vista.getJdcFechaNac().getDate();
+        boolean valid = Validar.edad(fecha);
+        if (valid) {
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Edad invalida");
         }
         return valid;
 

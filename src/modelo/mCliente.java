@@ -90,6 +90,11 @@ public class mCliente extends Cliente {
         return rs;
 
     }
+     public ResultSet jointabla() {
+        sql = "SELECT * FROM Cliente JOIN Persona ON Cliente.cedula_per = Persona.cedula JOIN IMAGEN ON persona.id_imagen=imagen.id";
+        rs = con.consulta(sql);
+        return rs;
+    }
 
     public int existecliente(String cedula) {
         int cont = 0;
