@@ -43,7 +43,6 @@ public class mModelo extends Modelo {
         return con.accion(sql);
     }
  
-
     public boolean eliminar(int id) {
         sql = "DELETE FROM modelo WHERE id=" + id + "";
         return con.accion(sql);

@@ -41,20 +41,26 @@ public class Conexion {
     
     public boolean accion(String sql) {
         conectar();
-        try {
-            System.out.println(sql);
-            st = con.createStatement();
-            if (st.executeUpdate(sql) == 1) {
-                st.close();
-                return true;
-            } else {
+        if (con != null) {
+            try {
+                System.out.println(sql);
+                st = con.createStatement();
+                if (st.executeUpdate(sql) == 1) {
+                    st.close();
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), null, JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), null, JOptionPane.ERROR_MESSAGE);
+        } else {
             return false;
         }
+
     }
 
     public void close() {

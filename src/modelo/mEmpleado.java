@@ -67,19 +67,6 @@ public class mEmpleado extends Empleado{
             return null;
         }
     }
-
-    public ResultSet join(String cedula) {
-        try {
-            sql = "SELECT p.cedula, p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.fecha_nac, p.telefono, p.direccion, p.correo, \n"
-                    + "p.sexo, p.id_imagen, e.contraseña, e.id_cargo, e.salario \n"
-                    + "FROM empleado e JOIN persona p ON(e.cedula_per = p.cedula) WHERE e.cedula_per ='" + cedula+"'";
-            rs = con.consulta(sql);
-            rs.next();
-            return rs;
-        } catch (SQLException ex) {
-            return null;
-        }
-    }
     
     public int ultimoID() {
         int id = 0;
@@ -91,5 +78,17 @@ public class mEmpleado extends Empleado{
         } catch (SQLException ex) {
         }
         return id;
+    }
+
+    public ResultSet join(int id) {
+        try {
+            sql = "SELECT p.cedula, p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.fecha_nac, p.telefono, p.direccion, p.correo, p.sexo, e.contraseña, c.nombre, \n"
+                    + "e.salario, p.id_imagen, i.nombre, i.valor FROM empleado e JOIN persona p ON(e.cedula_per = p.cedula) JOIN Cargo c ON (e.id_cargo = c.id) JOIN imagen i ON (p.id_imagen = i.id) WHERE e.id =" + id;
+            rs = con.consulta(sql);
+            rs.next();
+            return rs;
+        } catch (SQLException ex) {
+            return null;
+        }
     }
 }
