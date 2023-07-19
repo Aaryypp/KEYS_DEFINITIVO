@@ -254,6 +254,7 @@ public class vConductor extends javax.swing.JInternalFrame {
         jLabel4.setText("Cedula:");
 
         txtCedula.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(0, 153, 204));
 
         txtNombre2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
