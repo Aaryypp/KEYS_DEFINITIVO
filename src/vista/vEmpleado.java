@@ -107,8 +107,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         return txtTelefono;
     }
     
-    
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -157,12 +155,12 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jb_ModoNuevo = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jb_ModoVista = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtEmpleados = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
         cbColumnas = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtEmpleados = new javax.swing.JTable();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         setClosable(true);
@@ -175,16 +173,16 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(840, 480));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
-        lbModo.setBackground(new java.awt.Color(255, 255, 255));
+        lbModo.setBackground(new java.awt.Color(51, 51, 51));
         lbModo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbModo.setForeground(new java.awt.Color(0, 102, 153));
+        lbModo.setForeground(new java.awt.Color(255, 255, 255));
         lbModo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbModo.setText("(Modo) empleado");
-        lbModo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
+        lbModo.setOpaque(true);
 
-        jbOK.setBackground(new java.awt.Color(0, 102, 153));
+        jbOK.setBackground(new java.awt.Color(0, 0, 0));
         jbOK.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbOK.setForeground(new java.awt.Color(255, 255, 255));
         jbOK.setText("OK");
@@ -202,31 +200,26 @@ public class vEmpleado extends javax.swing.JInternalFrame {
 
         txtCedula.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(0, 153, 204));
-        txtCedula.setBorder(null);
 
         txtNombre2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNombre2.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Segundo nombre:");
 
         txtApellido1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtApellido1.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Primer apellido:");
 
         txtApellido2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtApellido2.setBorder(null);
 
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Segundo apellido:");
 
         txtNombre1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtNombre1.setBorder(null);
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -238,7 +231,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
 
         txtSueldo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtSueldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtSueldo.setBorder(null);
 
         jLabel37.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(51, 51, 51));
@@ -253,21 +245,18 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jLabel14.setText("Dirección:");
 
         txtDireccion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtDireccion.setBorder(null);
 
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Teléfono:");
 
         txtTelefono.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtTelefono.setBorder(null);
 
         jLabel31.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
         jLabel31.setText("Correo:");
 
         txtCorreo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtCorreo.setBorder(null);
 
         jLabel38.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(51, 51, 51));
@@ -292,7 +281,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jdcFechaNac.setPreferredSize(new java.awt.Dimension(103, 26));
 
         txtContraseña.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtContraseña.setBorder(null);
 
         lbFoto.setBackground(new java.awt.Color(0, 126, 126));
         lbFoto.setForeground(new java.awt.Color(255, 255, 255));
@@ -446,14 +434,13 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                         .addGap(2, 2, 2)
                         .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jScrollPane.setViewportView(jPanel3);
 
         jToolBar.setFloatable(false);
-        jToolBar.setBackground(new java.awt.Color(0, 102, 153));
-        jToolBar.setBorder(null);
+        jToolBar.setBackground(new java.awt.Color(0, 0, 0));
 
         jSeparator5.setSeparatorSize(new java.awt.Dimension(25, 0));
         jToolBar.add(jSeparator5);
@@ -465,6 +452,8 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jSeparator2.setSeparatorSize(new java.awt.Dimension(25, 0));
         jToolBar.add(jSeparator2);
 
+        jb_ModoEditar.setBackground(new java.awt.Color(51, 51, 51));
+        jb_ModoEditar.setForeground(new java.awt.Color(255, 255, 255));
         jb_ModoEditar.setText("Editar");
         jb_ModoEditar.setFocusable(false);
         jb_ModoEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -474,6 +463,8 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jSeparator3.setSeparatorSize(new java.awt.Dimension(25, 0));
         jToolBar.add(jSeparator3);
 
+        jb_ModoNuevo.setBackground(new java.awt.Color(51, 51, 51));
+        jb_ModoNuevo.setForeground(new java.awt.Color(255, 255, 255));
         jb_ModoNuevo.setText("Nuevo");
         jb_ModoNuevo.setFocusable(false);
         jb_ModoNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -483,6 +474,8 @@ public class vEmpleado extends javax.swing.JInternalFrame {
         jSeparator4.setSeparatorSize(new java.awt.Dimension(25, 0));
         jToolBar.add(jSeparator4);
 
+        jb_ModoVista.setBackground(new java.awt.Color(51, 51, 51));
+        jb_ModoVista.setForeground(new java.awt.Color(255, 255, 255));
         jb_ModoVista.setText("Vista");
         jb_ModoVista.setFocusable(false);
         jb_ModoVista.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -519,22 +512,6 @@ public class vEmpleado extends javax.swing.JInternalFrame {
 
         jScrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        jtEmpleados = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int colIndex){
-                return false;
-            }
-        };
-        jtEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtEmpleados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jtEmpleados);
-
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -563,7 +540,7 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                 .addGap(9, 9, 9)
                 .addComponent(cbColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -578,6 +555,26 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14))
         );
 
+        jtEmpleados = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        jtEmpleados.setBackground(new java.awt.Color(51, 51, 51));
+        jtEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtEmpleados.setForeground(new java.awt.Color(255, 255, 255));
+        jtEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jtEmpleados.setSelectionBackground(new java.awt.Color(225, 225, 225));
+        jtEmpleados.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setViewportView(jtEmpleados);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -587,8 +584,8 @@ public class vEmpleado extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

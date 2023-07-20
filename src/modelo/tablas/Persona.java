@@ -14,7 +14,7 @@ public class Persona {
     private String correo;
     private String sexo;
     private int id_imagen;
-
+    
     public Persona() {
     }
 

@@ -171,7 +171,6 @@ public class cEmpleado {
                                     }
                                 }
                             }
-
                         }
 
                     } else {
@@ -240,7 +239,7 @@ public class cEmpleado {
 
     public void setearEmpleado() {
         modelo.setCedula_per(vista.getTxtCedula().getText());
-        modelo.setContraseña(null);
+        modelo.setContraseña(vista.getTxtContraseña().getText());
         modelo.setId_cargo(mc.obtenerID(vista.getCbCargo().getSelectedItem().toString()));
         modelo.setSalario(salario);
     }
@@ -264,7 +263,7 @@ public class cEmpleado {
             vista.getTxtCorreo().setText("");
             vista.getCbSexo().setSelectedIndex(0);
             vista.getTxtSueldo().setText("");
-            vista.getTxtContraseña().setText("");
+            vista.getTxtContraseña().setText(null);
             vista.getLbFoto().setIcon(null);
             mi = new mImagen();
             vista.getLbModo().setText("Registrar empleado");
