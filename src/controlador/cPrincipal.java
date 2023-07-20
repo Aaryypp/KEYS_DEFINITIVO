@@ -1,15 +1,21 @@
 package controlador;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLightLaf;
+//import com.formdev.flatlaf.FlatDarculaLaf;
+//import com.formdev.flatlaf.FlatIntelliJLaf;
+//import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
+import javaswingdev.drawer.Drawer;
+import javaswingdev.drawer.DrawerController;
+import javaswingdev.drawer.DrawerItem;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import modelo.mAuto;
@@ -17,6 +23,7 @@ import modelo.mCliente;
 import modelo.mConductor;
 import modelo.mEmpleado;
 import modelo.mExtra;
+import vista.cabecera;
 import vista.vAuto;
 import vista.vCliente;
 import vista.vConductor;
@@ -31,14 +38,26 @@ public final class cPrincipal {
     vEmpleado vempleado;
     vAuto vauto;
     vExtras vextras;
-//    private static Application app;
-//    private final MainForm mainForm;
-//    private final LoginForm loginForm;
+    private DrawerController dave;
     
 //    
 //    
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
+        dave = Drawer.newDrawer(this.vista).header(new cabecera())
+                .separator(2, new Color(173,173,173))
+                .background(new Color(135,206,250))
+                .backgroundTransparent(0.3f)
+                .duration(300)
+                .enableScroll(true)
+                .addChild(new DrawerItem("CLIENTES").icon(new ImageIcon(getClass().getResource("/vista/img/menu/user.png"))).build())
+                .addChild(new DrawerItem("AUTOS").icon(new ImageIcon(getClass().getResource("/vista/img/menu/data.png"))).build())
+                .addChild(new DrawerItem("EXTRAS").icon(new ImageIcon(getClass().getResource("/vista/img/menu/income.png"))).build())
+                .addChild(new DrawerItem("MULTAS").icon(new ImageIcon(getClass().getResource("/vista/img/menu/expense.png"))).build())
+                .addChild(new DrawerItem("REPORTE DE CLIENTES").icon(new ImageIcon(getClass().getResource("/vista/img/menu/report.png"))).build())
+                .addChild(new DrawerItem("BAROU").icon(new ImageIcon(getClass().getResource("/vista/img/menu/data.png"))).build())
+                .addFooter(new DrawerItem("SALIR ").icon(new ImageIcon(getClass().getResource("/vista/img/menu/exit.png"))).build())
+                .build();
     }
 
     public void iniciar() {
@@ -59,73 +78,74 @@ public final class cPrincipal {
         vista.getMiAutomovil().addActionListener(l-> MenuAutos()); 
         vista.getMiExtras().addActionListener(l->menuExtras());
         vista.getMiEmpleado().addActionListener(l-> menuEmpelado());
+        vista.getMenu_desplegable().addActionListener(l-> Desplegar());
     }
     
     
     public void guardarTema(){
-        setTema(vista.getJlTemas().getSelectedValue());
+//        setTema(vista.getJlTemas().getSelectedValue());
     }
     
-    public void setTema(String tema) {
-        tema = tema.replaceAll("[0-9. ]", "");
-        try {
-            switch (tema) {
-                case "NimbusLookAndFeel":
-                    UIManager.setLookAndFeel(new NimbusLookAndFeel());
-                    break;
-                case "FlatArcDarkIJTheme":
-                    UIManager.setLookAndFeel(new FlatArcDarkIJTheme());
-                    break;
-                case "FlatArcDarkOrangeIJTheme":
-                    UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
-                    break;
-                case "FlatArcOrangeIJTheme":
-                    UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
-                    break;
-                case "FlatDarkPurpleIJTheme":
-                    UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
-                    break;
-                case "FlatDarculaLaf":
-                    UIManager.setLookAndFeel(new FlatDarculaLaf());
-                    break;
-                case "FlatGitHubIJTheme":
-                    UIManager.setLookAndFeel(new FlatGitHubIJTheme());
-                    break;
-                case "FlatIntelliJLaf":
-                    UIManager.setLookAndFeel(new FlatIntelliJLaf());
-                    break;
-                case "FlatLightLaf":
-                    UIManager.setLookAndFeel(new FlatLightLaf());
-                    break;
-                case "FlatMaterialDarkIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialDarkerIJTheme());
-                    break;
-                case "FlatMaterialDeepOceanIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialDeepOceanIJTheme());
-                    break;
-                case "FlatMaterialDesignDarkIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialDesignDarkIJTheme());
-                    break;
-                case "FlatMaterialLighterIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
-                    break;
-                case "FlatMaterialOceanicIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialOceanicIJTheme());
-                    break;
-                case "FlatMaterialPalenightIJTheme":
-                    UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
-                    break;
-            }
-            verJdTemas(false);
-            vista.dispose();
-
-            vista = new vPrincipal();
-            vista.setVisible(true);
-            iniciar();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void setTema(String tema) {
+//        tema = tema.replaceAll("[0-9. ]", "");
+//        try {
+//            switch (tema) {
+//                case "NimbusLookAndFeel":
+//                    UIManager.setLookAndFeel(new NimbusLookAndFeel());
+//                    break;
+//                case "FlatArcDarkIJTheme":
+//                    UIManager.setLookAndFeel(new FlatArcDarkIJTheme());
+//                    break;
+//                case "FlatArcDarkOrangeIJTheme":
+//                    UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+//                    break;
+//                case "FlatArcOrangeIJTheme":
+//                    UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+//                    break;
+//                case "FlatDarkPurpleIJTheme":
+//                    UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
+//                    break;
+//                case "FlatDarculaLaf":
+//                    UIManager.setLookAndFeel(new FlatDarculaLaf());
+//                    break;
+//                case "FlatGitHubIJTheme":
+//                    UIManager.setLookAndFeel(new FlatGitHubIJTheme());
+//                    break;
+//                case "FlatIntelliJLaf":
+//                    UIManager.setLookAndFeel(new FlatIntelliJLaf());
+//                    break;
+//                case "FlatLightLaf":
+//                    UIManager.setLookAndFeel(new FlatLightLaf());
+//                    break;
+//                case "FlatMaterialDarkIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialDarkerIJTheme());
+//                    break;
+//                case "FlatMaterialDeepOceanIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialDeepOceanIJTheme());
+//                    break;
+//                case "FlatMaterialDesignDarkIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialDesignDarkIJTheme());
+//                    break;
+//                case "FlatMaterialLighterIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
+//                    break;
+//                case "FlatMaterialOceanicIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialOceanicIJTheme());
+//                    break;
+//                case "FlatMaterialPalenightIJTheme":
+//                    UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+//                    break;
+//            }
+//            verJdTemas(false);
+//            vista.dispose();
+//
+//            vista = new vPrincipal();
+//            vista.setVisible(true);
+//            iniciar();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void setBordeButton() {
         UIManager.put("Button.arc", 100);
@@ -211,5 +231,15 @@ public final class cPrincipal {
         
         cExtra controlador = new cExtra(modextra, vextras);
         
+    }
+           
+    
+    
+    public void Desplegar(){
+        if(dave.isShow()){
+            dave.hide();
+        }else{
+            dave.show();
+        }
     }
 }

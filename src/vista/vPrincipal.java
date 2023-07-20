@@ -1,4 +1,5 @@
 package vista;
+import LIB.FSButtonMD;
 import controlador.otros.RoundedLabel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -37,10 +38,6 @@ public class vPrincipal extends javax.swing.JFrame {
         return jmSalir;
     }
 
-    public JLabel getLbLogo() {
-        return jLabel1;
-    }
-
     public JMenuItem getMiAlquiler() {
         return miAlquiler;
     }
@@ -73,6 +70,22 @@ public class vPrincipal extends javax.swing.JFrame {
     public JDesktopPane getJdPrincipal() {
         return jdPrincipal;
     }
+
+    public JMenuItem getJmI_menu() {
+        return JmI_menu;
+    }
+
+    public void setJmI_menu(JMenuItem JmI_menu) {
+        this.JmI_menu = JmI_menu;
+    }
+
+    public FSButtonMD getMenu_desplegable() {
+        return Menu_desplegable;
+    }
+
+    public void setMenu_desplegable(FSButtonMD Menu_desplegable) {
+        this.Menu_desplegable = Menu_desplegable;
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -94,9 +107,7 @@ public class vPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jdPrincipal = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new RoundedLabel("", 250, 0x221C37, 0x221C37, 1.0f)
-        ;
+        Menu_desplegable = new LIB.FSButtonMD();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -104,7 +115,7 @@ public class vPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmTemas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        JmI_menu = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -303,37 +314,25 @@ public class vPrincipal extends javax.swing.JFrame {
         jdPrincipal.setMinimumSize(new java.awt.Dimension(840, 480));
         jdPrincipal.setName(""); // NOI18N
 
+        Menu_desplegable.setText("|||");
+
+        jdPrincipal.setLayer(Menu_desplegable, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jdPrincipalLayout = new javax.swing.GroupLayout(jdPrincipal);
         jdPrincipal.setLayout(jdPrincipalLayout);
         jdPrincipalLayout.setHorizontalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGroup(jdPrincipalLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(Menu_desplegable, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1043, Short.MAX_VALUE))
         );
         jdPrincipalLayout.setVerticalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+            .addGroup(jdPrincipalLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(Menu_desplegable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         jMenu2.setText("Opciones");
@@ -358,9 +357,9 @@ public class vPrincipal extends javax.swing.JFrame {
 
         jMenu4.setText("Resumen");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/comunidad.png"))); // NOI18N
-        jMenuItem2.setText("Comunidad");
-        jMenu4.add(jMenuItem2);
+        JmI_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/comunidad.png"))); // NOI18N
+        JmI_menu.setText("Comunidad");
+        jMenu4.add(JmI_menu);
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/flecha-hacia-arriba.png"))); // NOI18N
         jMenuItem3.setText("Prestamos");
@@ -435,14 +434,10 @@ public class vPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jdPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jdPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jdPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -451,10 +446,11 @@ public class vPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JmI_menu;
+    private LIB.FSButtonMD Menu_desplegable;
     private javax.swing.JPanel Panel_fondo;
     private controlador.otros.Background background1;
     private controlador.otros.Button button1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -472,11 +468,9 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton jbGuardarTema;

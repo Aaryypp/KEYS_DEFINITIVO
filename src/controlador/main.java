@@ -9,7 +9,7 @@ public class main {
         try {
             cPrincipal control = new cPrincipal(new vPrincipal());
             control.iniciar();
-            control.setTema("FlatIntelliJLaf");
+//            control.setTema("FlatIntelliJLaf");
         } catch (IOException ex) {
         }
     }
