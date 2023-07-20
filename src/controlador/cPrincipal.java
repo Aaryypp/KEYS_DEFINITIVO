@@ -10,10 +10,13 @@ import com.formdev.flatlaf.intellijthemes.FlatMaterialDesignDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import javaswingdev.drawer.DrawerItem;
+import javaswingdev.drawer.EventDrawer;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
@@ -45,6 +48,7 @@ public final class cPrincipal {
     public cPrincipal(vPrincipal vista) throws IOException {
         this.vista = vista;
         dave = Drawer.newDrawer(this.vista).header(new cabecera())
+                .space(5)
                 .separator(2, new Color(173,173,173))
                 .background(new Color(135,206,250))
                 .backgroundTransparent(0.3f)
@@ -57,17 +61,50 @@ public final class cPrincipal {
                 .addChild(new DrawerItem("REPORTE DE CLIENTES").icon(new ImageIcon(getClass().getResource("/vista/img/menu/report.png"))).build())
                 .addChild(new DrawerItem("BAROU").icon(new ImageIcon(getClass().getResource("/vista/img/menu/data.png"))).build())
                 .addFooter(new DrawerItem("SALIR ").icon(new ImageIcon(getClass().getResource("/vista/img/menu/exit.png"))).build())
+                .event(new EventDrawer(){
+                @Override
+                public void selected(int i, DrawerItem di) {
+                    System.out.println(i);
+                    switch (i){
+                        case 0:
+                            menuPersona();
+                            break;
+                        case 1:
+                            MenuAutos();
+                            break;
+                        case 2:
+                            menuExtras();
+                            break;
+                        case 3:
+                            
+                            break;
+                        case 4:
+                            
+                            break;
+                        case 5:
+                            
+                            break;
+                        case 6:
+                            verJdLogin(true);
+                            break;
+                }
+                }
+                })
                 .build();
     }
 
     public void iniciar() {
-//        setSize(new Dimension(1200, 768));
-//        setLocationRelativeTo(null);
-//        mainForm = new MainForm();
-//        loginForm = new LoginForm();
-//        setContentPane(loginForm);
-//        Notifications.getInstance().setJFrame(this);
-        vista.setVisible(true);
+//        
+//        vista.setVisible(true);
+        vista.getJdLogin().setSize(640, 535);
+        vista.getExitTxt().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Cerrar();
+            }
+        });
+        vista.getJdLogin().setLocationRelativeTo(vista);
+        vista.getJdLogin().setVisible(true);
         vista.setExtendedState(vPrincipal.MAXIMIZED_BOTH);
         setBordeButton();
         vista.getJmTemas().addActionListener(l-> verJdTemas(true));
@@ -79,6 +116,7 @@ public final class cPrincipal {
         vista.getMiExtras().addActionListener(l->menuExtras());
         vista.getMiEmpleado().addActionListener(l-> menuEmpelado());
         vista.getMenu_desplegable().addActionListener(l-> Desplegar());
+        vista.getJmSalir().addActionListener(l->Perfil());
     }
     
     
@@ -162,6 +200,7 @@ public final class cPrincipal {
     }
     
     public void verJdLogin(boolean ver) {
+        vista.setVisible(false);
         vista.getJdLogin().setTitle("Iniciar Sesión");
         vista.getJdLogin().setSize(640, 535);
         vista.getJdLogin().setLocationRelativeTo(vista);
@@ -241,5 +280,13 @@ public final class cPrincipal {
         }else{
             dave.show();
         }
+    }
+    
+    public void Cerrar(){
+        System.exit(0);
+    }
+    
+    public void Perfil(){
+        
     }
 }
